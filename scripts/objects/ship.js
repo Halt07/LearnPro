@@ -72,7 +72,7 @@ MyGame.objects.Ship = function(spec) {
         Object.getOwnPropertyNames(photonTorpedoes).forEach(value => {
             let torpedo = photonTorpedoes[value];
             torpedo.update(elapsedTime);
-            if(spec.field.checkCollisions(torpedo) || (spec.largeFish.alive && spec.largeFish.checkCollisions(torpedo)) || (spec.smallFish.alive && spec.smallFish.checkCollisions(torpedo))){
+            if((spec.largeFish.alive && spec.largeFish.checkCollisions(torpedo)) || (spec.smallFish.alive && spec.smallFish.checkCollisions(torpedo))){
                 removeMe.push(value);
             }
             if (torpedo.alive > torpedo.lifeTime) {
@@ -110,12 +110,6 @@ MyGame.objects.Ship = function(spec) {
             //Check for safe spot to respawn
             let randx = Random.nextRange(0, MyGame.graphics.canvas.width);
             let randy = Random.nextRange(0, MyGame.graphics.canvas.height);
-            while(spec.field.checkCollisions({center: {x: randx, y: randy} , size: {width: spec.size.width+150, height: spec.size.height}, image: {src: ''}})
-            || (spec.largeFish.alive)
-            || (spec.smallFish.alive)){  
-                randx = Random.nextRange(0, MyGame.graphics.canvas.width);
-                randy = Random.nextRange(0, MyGame.graphics.canvas.height);
-            }
 
             moveTo({x: randx, y: randy});
             spec.moveRate = 0;
@@ -141,10 +135,6 @@ MyGame.objects.Ship = function(spec) {
         //Check for safe spot to respawn
         let randx = Random.nextRange(0, MyGame.graphics.canvas.width);
         let randy = Random.nextRange(0, MyGame.graphics.canvas.height);
-        while(spec.field.checkCollisions({center: {x: randx, y: randy} , size: {width: spec.size.width+150, height: spec.size.height}, image: {src: ''}})){   
-            randx = Random.nextRange(0, MyGame.graphics.canvas.width);
-            randy = Random.nextRange(0, MyGame.graphics.canvas.height);
-        }
 
         moveTo({x: randx, y: randy});
         spec.moveRate = 0;

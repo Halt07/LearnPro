@@ -32,10 +32,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
     loadBackgroundMusic();
 
-    let Field = objects.AsteroidField({
-        imageSrc: 'assets/strange_thingy.png',
-        manager: manager
-    });
 
     let fishRender = createFishRenderer("ray");
 
@@ -60,7 +56,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         size: { width: 50, height: 50 },
         moveRate: 0,    // pixels per millisecond
         manager: manager,
-        field: Field,
         largeFish: largeFish,
         smallFish: smallFish
     });
@@ -70,7 +65,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         score: 0,
         level: 1,
     });
-    Field.setInfo(myInfo);
     smallFish.setInfo(myInfo);
     largeFish.setInfo(myInfo);
 
@@ -123,11 +117,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
         loadBackgroundMusic();
 
-        Field = objects.AsteroidField({
-            imageSrc: 'assets/strange_thingy.png',
-            manager: manager
-        });
-
         largeFish = objects.Fish({
             imageSrc: 'assets/scarab.png',
             center: { x: -100, y: -100 },
@@ -149,7 +138,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             size: { width: 50, height: 50 },
             moveRate: 0,    // pixels per millisecond
             manager: manager,
-            field: Field,
             largeFish: largeFish,
             smallFish: smallFish
         });
@@ -159,7 +147,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             score: 0,
             level: 1,
         });
-        Field.setInfo(myInfo);
         smallFish.setInfo(myInfo);
         largeFish.setInfo(myInfo);
     }
@@ -176,17 +163,17 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         largeFish.update(elapsedTime, myShip.center);
         smallFish.update(elapsedTime, myShip.center);
         manager.update(elapsedTime);
-        Field.update(elapsedTime);
         fishRender.update(elapsedTime);
-        if(Field.checkCollisions(myShip)){
+        //TODO: Change End Game State
+        if(false){
             myShip.decreaseLives();
             if(myShip.lives==0){
                 gameover();
             }
         }
-        if(Object.keys(Field.asteroids).length < 1 && !largeFish.alive && !smallFish.alive){
+        //TODO: Change LevelUp State
+        if(false && !largeFish.alive && !smallFish.alive){
             myInfo.increaseLevel();
-            Field.refreshField(myInfo.level);
             playSound('LevelUp');
         }
         myInfo.updateText();
@@ -200,8 +187,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         graphics.clear();
 
         manager.render();
-        
-        Field.render();
         
         renderer.Ship.render(myShip);
         

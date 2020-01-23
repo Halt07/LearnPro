@@ -52,7 +52,7 @@ MyGame.objects.Fish = function(spec) {
             if(bubbleTimer > activeBubble){ //Bubble at most once per 1.5 seconds
                 activeBubble = Random.nextRange(1500,3000);
                 bubbleTimer = 0;
-                console.log("blub");
+                // console.log("blub");
                 spec.manager.createBubble({x: spec.center.x - 24, y: spec.center.y});
             }
             move(elapsedTime);
