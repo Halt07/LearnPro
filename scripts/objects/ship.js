@@ -111,8 +111,8 @@ MyGame.objects.Ship = function(spec) {
             let randx = Random.nextRange(0, MyGame.graphics.canvas.width);
             let randy = Random.nextRange(0, MyGame.graphics.canvas.height);
             while(spec.field.checkCollisions({center: {x: randx, y: randy} , size: {width: spec.size.width+150, height: spec.size.height}, image: {src: ''}})
-            || (spec.largeFish.alive && spec.largeFish.checkCollisions({center: {x: randx, y: randy} , size: {width: spec.size.width+100, height: spec.size.height}, image: {src: ''}}))
-            || (spec.smallFish.alive && spec.smallFish.checkCollisions({center: {x: randx, y: randy} , size: {width: spec.size.width+100, height: spec.size.height}, image: {src: ''}}))){  
+            || (spec.largeFish.alive)
+            || (spec.smallFish.alive)){  
                 randx = Random.nextRange(0, MyGame.graphics.canvas.width);
                 randy = Random.nextRange(0, MyGame.graphics.canvas.height);
             }
