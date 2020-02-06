@@ -129,7 +129,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         smallFish = objects.Fish({
             imageSrc: 'assets/flea.png',
             center: { x: -100, y: -100 },
-            size: { width: 30, height: 30 },
+            size: { width: 100, height: 66 },
             moveRate: 0,    // pixels per millisecond
             manager: manager
         });
