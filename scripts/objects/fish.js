@@ -44,7 +44,7 @@ MyGame.objects.Fish = function(spec) {
         info = inf;
     }
 
-    function update(elapsedTime, target) {
+    function update(elapsedTime) {
         if(alive){        
             bubbleTimer += elapsedTime;
             accTimer += elapsedTime;

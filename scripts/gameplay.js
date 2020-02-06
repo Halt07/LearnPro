@@ -37,8 +37,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     fishRender[0] = createFishRenderer("ray");
     fishRender[1] = createFishRenderer("dolphin");
 
-    let largeFish = createFish("ray");
-    let smallFish = createFish("dolphin");
+    let Fishies = [];
+    Fishies[0] = createFish("ray");
+    Fishies[1] = createFish("dolphin");
 
     let myShip = objects.Ship({
         imageSrc: 'assets/locust.png',
@@ -46,8 +47,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         size: { width: 50, height: 50 },
         moveRate: 0,    // pixels per millisecond
         manager: manager,
-        largeFish: largeFish,
-        smallFish: smallFish
     });
 
     let myInfo = objects.Info({
@@ -55,8 +54,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         score: 0,
         level: 1,
     });
-    smallFish.setInfo(myInfo);
-    largeFish.setInfo(myInfo);
 
     function createFish(type){
         switch(type){
@@ -123,7 +120,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 return renderer.AnimatedModel({
                     spriteSheet: 'assets/dolphinsprites.png',
                     spriteCount: 5,
-                    spriteTime: [120, 120, 120, 120, 120],   // ms per frame
+                    spriteTime: [150, 150, 150, 150, 150],   // ms per frame
                 }, graphics);
             case "red":
                 return renderer.AnimatedModel({
@@ -160,8 +157,8 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
         loadBackgroundMusic();
 
-        largeFish = createFish("ray");
-        smallFish = createFish("dolphin");
+        Fishies[0] = createFish("ray");
+        Fishies[1] = createFish("dolphin");
 
         myShip = objects.Ship({
             imageSrc: 'assets/locust.png',
@@ -169,8 +166,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             size: { width: 50, height: 50 },
             moveRate: 0,    // pixels per millisecond
             manager: manager,
-            largeFish: largeFish,
-            smallFish: smallFish
         });
 
         myInfo = objects.Info({
@@ -178,8 +173,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             score: 0,
             level: 1,
         });
-        smallFish.setInfo(myInfo);
-        largeFish.setInfo(myInfo);
     }
 
 
@@ -191,10 +184,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         timer += elapsedTime;
         
         myShip.update(elapsedTime);
-        largeFish.update(elapsedTime, myShip.center);
-        smallFish.update(elapsedTime, myShip.center);
         manager.update(elapsedTime);
         for(let i = 0; i< fishRender.length; i++){
+            Fishies[i].update(elapsedTime);
             fishRender[i].update(elapsedTime);
         }
         //TODO: Change End Game State
@@ -205,7 +197,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             }
         }
         //TODO: Change LevelUp State
-        if(false && !largeFish.alive && !smallFish.alive){
+        if(false){
             myInfo.increaseLevel();
             playSound('LevelUp');
         }
@@ -223,8 +215,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         
         renderer.Ship.render(myShip);
         
-        fishRender[0].render(largeFish);
-        fishRender[1].render(smallFish);
+        for(let i = 0; i < fishRender.length; i++){
+            fishRender[i].render(Fishies[i]);
+        }
         
         myInfo.render();
     }

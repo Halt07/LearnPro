@@ -23,8 +23,6 @@ MyGame.objects.Ship = function(spec) {
     let hyperSpaceReady = false;
     let hyperTimer = 0;
 
-    let photonTorpedoes = {};
-    let torpedoName = 1;
     let activeFire = false;
     let fireTimer = 0;
 
@@ -56,7 +54,6 @@ MyGame.objects.Ship = function(spec) {
 
     function update(elapsedTime) {
         hyperTimer += elapsedTime;
-        fireTimer += elapsedTime;
         if (lives > 0){
             move(elapsedTime);
         }
@@ -64,25 +61,7 @@ MyGame.objects.Ship = function(spec) {
             hyperSpaceReady = true;
             console.log('Hyperspace Ready')
         }
-        if(fireTimer > 333 && activeFire){ //Fire at most thrice per second
-            activeFire = false;
-        }
 
-        let removeMe = [];
-        Object.getOwnPropertyNames(photonTorpedoes).forEach(value => {
-            let torpedo = photonTorpedoes[value];
-            torpedo.update(elapsedTime);
-            if((spec.largeFish.alive && spec.largeFish.checkCollisions(torpedo)) || (spec.smallFish.alive && spec.smallFish.checkCollisions(torpedo))){
-                removeMe.push(value);
-            }
-            if (torpedo.alive > torpedo.lifeTime) {
-                removeMe.push(value);
-            }
-        });
-        
-        for (let torpedo = 0; torpedo < removeMe.length; torpedo++) {
-            delete photonTorpedoes[removeMe[torpedo]];
-        }
     }
 
     function move(elapsedTime) {
@@ -144,26 +123,6 @@ MyGame.objects.Ship = function(spec) {
         lives++;
     }
 
-    function firePhotonTorpedoes(){
-        if(!activeFire){
-            activeFire = true;
-            fireTimer = 0;
-            laserSound();
-            console.log('Firing Photon Torpedoes');
-
-            photonTorpedoes[torpedoName++] = MyGame.objects.Missile({
-                imageSrc: 'assets/fire.png',
-                center: { x: spec.center.x + (Math.cos(rotation-Math.PI/2) * 30), y: spec.center.y + (Math.sin(rotation-Math.PI/2) * 30) },
-                size: { width: 15, height: 60 },
-                direction: {x: Math.cos(rotation-Math.PI/2), y: Math.sin(rotation-Math.PI/2) },
-                speed: 4, // pixels per second
-                rotation: rotation,
-                lifeTime: 3000, // 3 seconds
-                alive: 0,
-            });
-        }
-    }
-
     let api = {
         update: update,
         turnLeft: turnLeft,
@@ -173,7 +132,6 @@ MyGame.objects.Ship = function(spec) {
         moveTo: moveTo,
         decreaseLives: decreaseLives,
         increaseLives: increaseLives,
-        firePhotonTorpedoes: firePhotonTorpedoes,
         get imageReady() { return imageReady; },
         get rotation() { return rotation; },
         get momentum() { return momentum; },
@@ -181,7 +139,6 @@ MyGame.objects.Ship = function(spec) {
         get center() { return spec.center; },
         get size() { return spec.size; },
         get lives() { return lives; },
-        get photonTorpedoes() { return photonTorpedoes; },
         get image() { return image;},
         get hyperTimer() { return hyperTimer;}
     };

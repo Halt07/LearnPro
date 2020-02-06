@@ -29,6 +29,7 @@ MyGame.render.AnimatedModel = function(spec, graphics) {
         animationTime += elapsedTime;
         //
         // Check to see if we should update the animation frame
+        animationTime = animationTime % 1000;
         if (animationTime >= spec.spriteTime[subImageIndex]) {
             //
             // When switching sprites, keep the leftover time because
