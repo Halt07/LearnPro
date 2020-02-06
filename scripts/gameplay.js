@@ -33,7 +33,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     loadBackgroundMusic();
 
 
-    let fishRender = createFishRenderer("ray");
+    let fishRender = [];
+    fishRender[0] = createFishRenderer("ray");
+    fishRender[1] = createFishRenderer("dolphin")
 
     let largeFish = objects.Fish({
         imageSrc: 'assets/scarab.png',
@@ -78,9 +80,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }, graphics);
             case "dolphin":
                 return renderer.AnimatedModel({
-                    spriteSheet: 'assets/raysprites.png',
-                    spriteCount: 8,
-                    spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
+                    spriteSheet: 'assets/dolphinsprites.png',
+                    spriteCount: 5,
+                    spriteTime: [120, 120, 120, 120, 120],   // ms per frame
                 }, graphics);
             case "red":
                 return renderer.AnimatedModel({
@@ -163,7 +165,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         largeFish.update(elapsedTime, myShip.center);
         smallFish.update(elapsedTime, myShip.center);
         manager.update(elapsedTime);
-        fishRender.update(elapsedTime);
+        for(let i = 0; i< fishRender.length; i++){
+            fishRender[i].update(elapsedTime);
+        }
         //TODO: Change End Game State
         if(false){
             myShip.decreaseLives();
@@ -190,8 +194,8 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         
         renderer.Ship.render(myShip);
         
-        fishRender.render(largeFish);
-        renderer.Ship.render(smallFish);
+        fishRender[0].render(largeFish);
+        fishRender[1].render(smallFish);
         
         myInfo.render();
     }
