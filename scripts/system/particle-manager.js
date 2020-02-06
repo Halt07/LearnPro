@@ -24,7 +24,7 @@ MyGame.systems.ParticleManager = function (systems, renderer, graphics) {
         hasDirection: true,
     });
     function createBubble(spec){
-        particlesBubble.setCenter({ x: spec.x + Random.nextRange(-15,15), y: spec.y });
+        particlesBubble.setCenter({ x: spec.x + Random.nextRange(-25,25), y: spec.y });
         particlesBubble.setRotation(0);
         particlesBubble.setDirection({x: 0, y: -1});
         particlesBubble.setActive(true);

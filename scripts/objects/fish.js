@@ -1,6 +1,6 @@
 // --------------------------------------------------------------
 //
-// Creates a Ship object, with functions for managing state.
+// Creates a Fish object, with functions for managing state.
 //
 // spec = {
 //    imageSrc: ,   // Web server location of the image
