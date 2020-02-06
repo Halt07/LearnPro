@@ -35,22 +35,10 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
     let fishRender = [];
     fishRender[0] = createFishRenderer("ray");
-    fishRender[1] = createFishRenderer("dolphin")
+    fishRender[1] = createFishRenderer("dolphin");
 
-    let largeFish = objects.Fish({
-        imageSrc: 'assets/scarab.png',
-        center: { x: -100, y: -100 },
-        size: { width: 165, height: 68 },
-        moveRate: 1,    // pixels per millisecond
-        manager: manager
-    });
-    let smallFish = objects.Fish({
-        imageSrc: 'assets/flea.png',
-        center: { x: -100, y: -100 },
-        size: { width: 100, height: 66 },
-        moveRate: 1,    // pixels per millisecond
-        manager: manager
-    });
+    let largeFish = createFish("ray");
+    let smallFish = createFish("dolphin");
 
     let myShip = objects.Ship({
         imageSrc: 'assets/locust.png',
@@ -69,6 +57,59 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     });
     smallFish.setInfo(myInfo);
     largeFish.setInfo(myInfo);
+
+    function createFish(type){
+        switch(type){
+            case "ray":
+                return objects.Fish({
+                    imageSrc: 'assets/scarab.png',
+                    center: { x: -100, y: -100 },
+                    size: { width: 165, height: 68 },
+                    moveRate: 1,    // pixels per millisecond
+                    manager: manager
+                });
+            case "dolphin":
+                return objects.Fish({
+                    imageSrc: 'assets/flea.png',
+                    center: { x: -100, y: -100 },
+                    size: { width: 100, height: 66 },
+                    moveRate: 2,    // pixels per millisecond
+                    manager: manager
+                });
+            case "red":
+                return objects.Fish({
+                    imageSrc: 'assets/flea.png',
+                    center: { x: -100, y: -100 },
+                    size: { width: 60, height: 54 },
+                    moveRate: 1.5,    // pixels per millisecond
+                    manager: manager
+                });
+            case "blue":
+                return objects.Fish({
+                    imageSrc: 'assets/flea.png',
+                    center: { x: -100, y: -100 },
+                    size: { width: 60, height: 54 },
+                    moveRate: 1.5,    // pixels per millisecond
+                    manager: manager
+                });
+            case "yellow":
+                return objects.Fish({
+                    imageSrc: 'assets/flea.png',
+                    center: { x: -100, y: -100 },
+                    size: { width: 60, height: 54 },
+                    moveRate: 1.5,    // pixels per millisecond
+                    manager: manager
+                });
+            default:
+                return objects.Fish({
+                    imageSrc: 'assets/flea.png',
+                    center: { x: -100, y: -100 },
+                    size: { width: 60, height: 54 },
+                    moveRate: 1.5,    // pixels per millisecond
+                    manager: manager
+                });
+        }
+    }
 
     function createFishRenderer(type){
         switch(type){
@@ -119,20 +160,8 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
         loadBackgroundMusic();
 
-        largeFish = objects.Fish({
-            imageSrc: 'assets/scarab.png',
-            center: { x: -100, y: -100 },
-            size: { width: 165, height: 68 },
-            moveRate: 0,    // pixels per millisecond
-            manager: manager
-        });
-        smallFish = objects.Fish({
-            imageSrc: 'assets/flea.png',
-            center: { x: -100, y: -100 },
-            size: { width: 100, height: 66 },
-            moveRate: 0,    // pixels per millisecond
-            manager: manager
-        });
+        largeFish = createFish("ray");
+        smallFish = createFish("dolphin");
 
         myShip = objects.Ship({
             imageSrc: 'assets/locust.png',
