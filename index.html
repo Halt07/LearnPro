@@ -7,13 +7,40 @@
     <link rel = "stylesheet" type = "text/css" href = "styles/game.css">
 </head>
 <body>
-        <div id="id-home">
+    <div id="home">
+        <div id="home-menu" class="screen active">
+            <h1><img src="" />LearnPro - Learning Together</h1>
             <ul class = "menu">
                 <li><a href="fishCounter.html"><button id = "id-fish">Count With You Fish</button></a></li>
-                <li><button id = "id-high-scores">High&nbsp;Scores</button></li>
                 <li><button id = "id-help">Help</button></li>
-                <li><button id = "id-about">About</button></li>
+                <li><button id = "id-about" onclick="showScreen('about')">About</button></li>
             </ul>
         </div>
+
+        <div id="about" class="screen">
+            <h1>About</h1>
+                <p>Developed by<br/>Bryan Christensen</p>
+                <p>Sound effects by Michel Baradari: opengameart.org/users/qubodup</p>
+                <p>Background Music by Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
+                <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector created by kreativkolors - www.freepik.com</a></p>
+                <p>Background Image by Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+                <p>Hyperspace particles and all other assets not specified above by Bryan Christensen</p>
+                <ul class = "menu">
+                    <li><button id = "id-about-back" onclick="showScreen('home-menu')">Back</button></li>
+                </ul>
+        </div>
+    </div>
+    <script>
+        function showScreen(id) {
+        //
+        // Remove the active state from all screens.  There should only be one...
+        let active = document.getElementsByClassName('active');
+        for (let screen = 0; screen < active.length; screen++) {
+            active[screen].classList.remove('active');
+        }
+        // Then, set the new screen to be active
+        document.getElementById(id).classList.add('active');
+        }
+    </script>
 </body>
 </html>
