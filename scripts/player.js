@@ -21,8 +21,8 @@ function initializeAudio() {
         MyGame.sounds['LevelUp'] = loadSound('assets/audio/Jingle_Achievement_00.mp3');
         MyGame.sounds['AlienHive'] = loadSound('assets/audio/Ambience_AlienHive_00.mp3');
         MyGame.sounds['AlienHive'].loop = true;
-        MyGame.sounds['Splash'] = loadSound('assets/audio/Alien_Language_00.mp3');
-        MyGame.sounds['Splash'].loop = true;
+        MyGame.sounds['Splash'] = loadSound('assets/audio/Bubbles.wav');
+        
         MyGame.sounds['Background'] = loadSound('assets/audio/dream_island.ogg');
         MyGame.sounds['Background'].loop = true;
         MyGame.sounds['Background'].autoplay = true;
@@ -102,7 +102,8 @@ function stopAllSounds() {
 //------------------------------------------------------------------
 function playSound(whichSound) {
     console.log('playing ' + whichSound);
-    MyGame.sounds[whichSound].play();
+    // if(MyGame.sounds[whichSound].readystate >= 2)
+        MyGame.sounds[whichSound].play();
 }
 
 //Plays Laser sound, which requires faster replay time

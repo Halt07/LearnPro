@@ -78,11 +78,8 @@ MyGame.objects.Fish = function(spec) {
     }
 
     function respawn(){
-        if(spec.size.width === 75){
-            playSound('AlienHive');
-        }
-        else{
-        }
+        playSound('Splash');
+        
         respawnTimer = 0;
         lives = 5;
         alive = true;
@@ -122,7 +119,5 @@ MyGame.objects.Fish = function(spec) {
         get lives() { return lives; },
         get rotation() {return rotation; },
     };
-
-    playSound('Splash');
     return api;
 }
