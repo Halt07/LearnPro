@@ -34,7 +34,7 @@ MyGame.game = (function(screens) {
     //
     //------------------------------------------------------------------
 	function initialize() {
-        window.onclick = function(){new Audio("./assets/audio/silence.mp3").play();}
+        window.onclick = function(){new Audio("./assets/audio/silence.mp3").play(); playBackground();    }
 		let screen = null;
 		//
 		// Go through each of the screens and tell them to initialize

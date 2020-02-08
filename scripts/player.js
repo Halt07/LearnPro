@@ -48,6 +48,7 @@ function initializeAudio() {
             MyGame.sounds['Splash'].volume = 30 / 100;
             changeVolume(20);
         }
+        loadBackgroundMusic();
     }
 
     console.log('initializing Audio...');
@@ -57,6 +58,12 @@ function initializeAudio() {
 
 function loadBackgroundMusic(){
     MyGame.sounds['Background'].load();
+    MyGame.sounds['Background'].currentTime = 0;
+}
+
+function playBackground(){
+    if(MyGame.sounds['Background'].currentTime == 0)
+        playSound('Background');
 }
 
 //------------------------------------------------------------------
