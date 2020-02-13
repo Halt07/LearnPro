@@ -59,7 +59,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         switch(type){
             case "ray":
                 return objects.Fish({
-                    imageSrc: 'assets/scarab.png',
+                    imageSrc: 'assets/locust.png',
                     center: { x: -100, y: -100 },
                     size: { width: 165, height: 68 },
                     moveRate: 1,    // pixels per millisecond
@@ -67,7 +67,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 });
             case "dolphin":
                 return objects.Fish({
-                    imageSrc: 'assets/flea.png',
+                    imageSrc: 'assets/locust.png',
                     center: { x: -100, y: -100 },
                     size: { width: 100, height: 66 },
                     moveRate: 2,    // pixels per millisecond
@@ -75,7 +75,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 });
             case "red":
                 return objects.Fish({
-                    imageSrc: 'assets/flea.png',
+                    imageSrc: 'assets/locust.png',
                     center: { x: -100, y: -100 },
                     size: { width: 60, height: 54 },
                     moveRate: 1.5,    // pixels per millisecond
@@ -83,7 +83,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 });
             case "blue":
                 return objects.Fish({
-                    imageSrc: 'assets/flea.png',
+                    imageSrc: 'assets/locust.png',
                     center: { x: -100, y: -100 },
                     size: { width: 60, height: 54 },
                     moveRate: 1.5,    // pixels per millisecond
@@ -91,7 +91,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 });
             case "yellow":
                 return objects.Fish({
-                    imageSrc: 'assets/flea.png',
+                    imageSrc: 'assets/locust.png',
                     center: { x: -100, y: -100 },
                     size: { width: 60, height: 54 },
                     moveRate: 1.5,    // pixels per millisecond
@@ -99,7 +99,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 });
             default:
                 return objects.Fish({
-                    imageSrc: 'assets/flea.png',
+                    imageSrc: 'assets/locust.png',
                     center: { x: -100, y: -100 },
                     size: { width: 60, height: 54 },
                     moveRate: 1.5,    // pixels per millisecond
