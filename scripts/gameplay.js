@@ -36,10 +36,14 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     let fishRender = [];
     fishRender[0] = createFishRenderer("ray");
     fishRender[1] = createFishRenderer("dolphin");
+    fishRender[2] = createFishRenderer("red");
+    fishRender[3] = createFishRenderer("yellow");
 
     let Fishies = [];
     Fishies[0] = createFish("ray");
     Fishies[1] = createFish("dolphin");
+    Fishies[2] = createFish("red");
+    Fishies[3] = createFish("yellow");
 
     let myShip = objects.Ship({
         imageSrc: 'assets/locust.png',
@@ -59,7 +63,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         switch(type){
             case "ray":
                 return objects.Fish({
-                    imageSrc: 'assets/locust.png',
+                    imageSrc: 'assets/raysprites.png',
                     center: { x: -100, y: -100 },
                     size: { width: 165, height: 68 },
                     moveRate: 1,    // pixels per millisecond
@@ -67,17 +71,17 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 });
             case "dolphin":
                 return objects.Fish({
-                    imageSrc: 'assets/locust.png',
+                    imageSrc: 'assets/dolphinsprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 100, height: 66 },
-                    moveRate: 2,    // pixels per millisecond
+                    size: { width: 122, height: 80 },
+                    moveRate: 2.5,    // pixels per millisecond
                     manager: manager
                 });
             case "red":
                 return objects.Fish({
-                    imageSrc: 'assets/locust.png',
+                    imageSrc: 'assets/redfatfishsprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 60, height: 54 },
+                    size: { width: 80, height: 60 },
                     moveRate: 1.5,    // pixels per millisecond
                     manager: manager
                 });
@@ -85,15 +89,15 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 return objects.Fish({
                     imageSrc: 'assets/locust.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 60, height: 54 },
+                    size: { width: 80, height: 60 },
                     moveRate: 1.5,    // pixels per millisecond
                     manager: manager
                 });
             case "yellow":
                 return objects.Fish({
-                    imageSrc: 'assets/locust.png',
+                    imageSrc: 'assets/yellowfatfishsprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 60, height: 54 },
+                    size: { width: 100, height: 60 },
                     moveRate: 1.5,    // pixels per millisecond
                     manager: manager
                 });
@@ -124,7 +128,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }, graphics);
             case "red":
                 return renderer.AnimatedModel({
-                    spriteSheet: 'assets/raysprites.png',
+                    spriteSheet: 'assets/redfatfishsprites.png',
                     spriteCount: 8,
                     spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
                 }, graphics);
@@ -136,7 +140,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }, graphics);
             case "yellow":
                 return renderer.AnimatedModel({
-                    spriteSheet: 'assets/raysprites.png',
+                    spriteSheet: 'assets/yellowfatfishsprites.png',
                     spriteCount: 8,
                     spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
                 }, graphics);
@@ -159,6 +163,8 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
         Fishies[0] = createFish("ray");
         Fishies[1] = createFish("dolphin");
+        Fishies[2] = createFish("red");
+        Fishies[3] = createFish("yellow");
 
         myShip = objects.Ship({
             imageSrc: 'assets/locust.png',
