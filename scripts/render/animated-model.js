@@ -17,6 +17,7 @@ MyGame.render.AnimatedModel = function(spec, graphics) {
     image.onload = function() {
         isReady = true;
         subTextureWidth = image.width / spec.spriteCount;
+        subImageIndex = Math.floor(Math.random()*spec.spriteCount);
     }
     image.src = spec.spriteSheet;
 

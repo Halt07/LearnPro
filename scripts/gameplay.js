@@ -31,25 +31,21 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     initializeAudio();
 
     loadBackgroundMusic();
-
-
-    let fishRender = [];
-    fishRender[0] = createFishRenderer("ray");
-    fishRender[1] = createFishRenderer("dolphin");
-    fishRender[2] = createFishRenderer("red");
-    fishRender[3] = createFishRenderer("yellow");
-    fishRender[4] = createFishRenderer("blue");
-    fishRender[5] = createFishRenderer("green");
-    fishRender[6] = createFishRenderer("mix");
+    let colors = ["ray", "dolphin", "red", "yellow", "blue", "green", "mix"];
+    Array.prototype.random = function(){return this[Math.floor(Math.random()*this.length)];};
+    let promptColor = colors.random();
+    let promptNum = Math.floor(Math.random()*10)+1;
+    console.log(promptColor + promptNum);
 
     let Fishies = [];
-    Fishies[0] = createFish("ray");
-    Fishies[1] = createFish("dolphin");
-    Fishies[2] = createFish("red");
-    Fishies[3] = createFish("yellow");
-    Fishies[4] = createFish("blue");
-    Fishies[5] = createFish("green");
-    Fishies[6] = createFish("mix");
+    for(let i = 0; i < promptNum; i++){
+        Fishies[i] = {"fish": createFish(promptColor), "render": createFishRenderer(promptColor), };
+    }
+    for(let i = 0; i < 15-promptNum; i++){
+        let randFish = colors.random(); 
+        while(randFish == promptColor){ randFish = colors.random(); } //Assure no duplicates of the target color
+        Fishies[promptNum + i] = {"fish": createFish(randFish), "render": createFishRenderer(randFish), };
+    }
 
     let myShip = objects.Ship({
         imageSrc: 'assets/locust.png',
@@ -62,7 +58,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     let myInfo = objects.Info({
         ship: myShip,
         score: 0,
-        level: 1,
+        color: promptColor,
     });
 
     function createFish(type){
@@ -98,7 +94,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                     imageSrc: 'assets/dolphinsprites.png',
                     center: { x: -100, y: -100 },
                     size: s,
-                    moveRate: 2.5,    // pixels per millisecond
+                    moveRate: Math.random()+1.75,    // pixels per millisecond
                     manager: manager
                 });
             case "red":
@@ -286,7 +282,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         myInfo = objects.Info({
             ship: myShip,
             score: 0,
-            level: 1,
+            color: promptColor,
         });
     }
 
@@ -300,9 +296,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         
         myShip.update(elapsedTime);
         manager.update(elapsedTime);
-        for(let i = 0; i< fishRender.length; i++){
-            Fishies[i].update(elapsedTime);
-            fishRender[i].update(elapsedTime);
+        for(let i = 0; i< Fishies.length; i++){
+            Fishies[i]["fish"].update(elapsedTime);
+            Fishies[i]["render"].update(elapsedTime);
         }
         //TODO: Change End Game State
         if(false){
@@ -313,7 +309,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         }
         //TODO: Change LevelUp State
         if(false){
-            myInfo.increaseLevel();
+            myInfo.changeColor();
             playSound('LevelUp');
         }
         myInfo.updateText();
@@ -330,8 +326,8 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         
         renderer.Ship.render(myShip);
         
-        for(let i = 0; i < fishRender.length; i++){
-            fishRender[i].render(Fishies[i]);
+        for(let i = 0; i < Fishies.length; i++){
+            Fishies[i]["render"].render(Fishies[i]["fish"]);
         }
         
         myInfo.render();

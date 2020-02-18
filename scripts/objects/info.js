@@ -16,8 +16,8 @@ MyGame.objects.Info = function(spec) {
 
     let lastLife = 0;
 
-    let myLevel = MyGame.objects.Text({
-        text: 'Level ' + spec.level,
+    let myColor = MyGame.objects.Text({
+        text: (spec.color=="ray" || spec.color=="dolphin") ? 'How many ' + spec.color + 's are there?' : 'How many ' + spec.color + ' fish are there?',
         font: '24pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
@@ -41,7 +41,7 @@ MyGame.objects.Info = function(spec) {
     });
 
     function updateText(){
-        myLevel.updateText('Level ' + spec.level);
+        myColor.updateText((spec.color=="ray" || spec.color=="dolphin") ? 'How many ' + spec.color + 's are there?' : 'How many ' + spec.color + ' fish are there?',);
     
         myScore.updateText('Score: ' + spec.score);
     
@@ -49,7 +49,7 @@ MyGame.objects.Info = function(spec) {
     }
 
     function render(){
-        MyGame.render.Text.render(myLevel);
+        MyGame.render.Text.render(myColor);
         MyGame.render.Text.render(myLives);
         MyGame.render.Text.render(myScore);
     }
@@ -58,13 +58,13 @@ MyGame.objects.Info = function(spec) {
         spec.score += howMuch;
     }
 
-    function increaseLevel(){
-        spec.level++;
+    function changeColor(color){
+        spec.color = color;
     }
 
     function resetInfo(){
         spec.score = 0;
-        spec.level = 1;
+        spec.color = 1;
         lastLife = 0;
     }
 
@@ -76,10 +76,10 @@ MyGame.objects.Info = function(spec) {
         updateText: updateText,
         render: render,
         increaseScore: increaseScore,
-        increaseLevel: increaseLevel,
+        changeColor: changeColor,
         setLastLifeIncrease: setLastLifeIncrease,
         resetInfo: resetInfo,
-        get level() { return spec.level; },
+        get color() { return spec.color; },
         get score() { return spec.score; },
         get lastLife() { return lastLife; }
     };
