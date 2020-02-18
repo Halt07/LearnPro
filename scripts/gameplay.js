@@ -38,12 +38,18 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     fishRender[1] = createFishRenderer("dolphin");
     fishRender[2] = createFishRenderer("red");
     fishRender[3] = createFishRenderer("yellow");
+    fishRender[4] = createFishRenderer("blue");
+    fishRender[5] = createFishRenderer("green");
+    fishRender[6] = createFishRenderer("mix");
 
     let Fishies = [];
     Fishies[0] = createFish("ray");
     Fishies[1] = createFish("dolphin");
     Fishies[2] = createFish("red");
     Fishies[3] = createFish("yellow");
+    Fishies[4] = createFish("blue");
+    Fishies[5] = createFish("green");
+    Fishies[6] = createFish("mix");
 
     let myShip = objects.Ship({
         imageSrc: 'assets/locust.png',
@@ -60,53 +66,150 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     });
 
     function createFish(type){
+        var s;
         switch(type){
             case "ray":
+                switch(Math.floor(Math.random()*2)){
+                    case 0:
+                        s = { width: 122, height: 50 };
+                        break;
+                    default:
+                        s = { width: 165, height: 68 };
+                }
                 return objects.Fish({
                     imageSrc: 'assets/raysprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 165, height: 68 },
+                    size: s,
                     moveRate: 1,    // pixels per millisecond
                     manager: manager
                 });
             case "dolphin":
+                switch(Math.floor(Math.random()*3)){
+                    case 0:
+                        s = { width: 122, height: 80 };
+                        break;
+                    case 1:
+                        s = { width: 100, height: 66 };
+                        break;
+                    default:
+                        s = { width: 145, height: 96 };
+                }
                 return objects.Fish({
                     imageSrc: 'assets/dolphinsprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 122, height: 80 },
+                    size: s,
                     moveRate: 2.5,    // pixels per millisecond
                     manager: manager
                 });
             case "red":
+                switch(Math.floor(Math.random()*4)){
+                    case 0:
+                        s = { width: 80, height: 60 };
+                        break;
+                    case 1:
+                        s = { width: 60, height: 50 };
+                        break;
+                    case 2:
+                        s = { width: 80, height: 32 };
+                        break;
+                    default:
+                        s = { width: 100, height: 60 };
+                }
                 return objects.Fish({
                     imageSrc: 'assets/redfatfishsprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 80, height: 60 },
-                    moveRate: 1.5,    // pixels per millisecond
+                    size: s,
+                    moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
                 });
             case "blue":
+                switch(Math.floor(Math.random()*4)){
+                    case 0:
+                        s = { width: 80, height: 60 };
+                        break;
+                    case 1:
+                        s = { width: 60, height: 50 };
+                        break;
+                    case 3:
+                        s = { width: 100, height: 40 };
+                        break;
+                    default:
+                        s = { width: 80, height: 32 };
+                }
                 return objects.Fish({
-                    imageSrc: 'assets/locust.png',
+                    imageSrc: 'assets/bluefatfishsprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 80, height: 60 },
-                    moveRate: 1.5,    // pixels per millisecond
+                    size: s,
+                    moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
                 });
             case "yellow":
+                switch(Math.floor(Math.random()*5)){
+                    case 0:
+                        s = { width: 80, height: 60 };
+                        break;
+                    case 1:
+                        s = { width: 60, height: 50 };
+                        break;
+                    case 2:
+                        s = { width: 60, height: 40 };
+                        break;
+                    case 3:
+                        s = { width: 100, height: 40 };
+                        break;
+                    default:
+                        s = { width: 100, height: 60 };
+                }
                 return objects.Fish({
                     imageSrc: 'assets/yellowfatfishsprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 100, height: 60 },
-                    moveRate: 1.5,    // pixels per millisecond
+                    size: s,
+                    moveRate: Math.random()+1,    // pixels per millisecond
+                    manager: manager
+                });
+            case "blue":
+                switch(Math.floor(Math.random()*4)){
+                    case 0:
+                        s = { width: 80, height: 60 };
+                        break;
+                    case 1:
+                        s = { width: 60, height: 50 };
+                        break;
+                    case 3:
+                        s = { width: 100, height: 40 };
+                        break;
+                    default:
+                        s = { width: 80, height: 32 };
+                }
+                return objects.Fish({
+                    imageSrc: 'assets/greenfatfishsprites.png',
+                    center: { x: -100, y: -100 },
+                    size: s,
+                    moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
                 });
             default:
+                switch(Math.floor(Math.random()*5)){
+                    case 0:
+                        s = { width: 80, height: 60 };
+                        break;
+                    case 1:
+                        s = { width: 60, height: 50 };
+                        break;
+                    case 2:
+                        s = { width: 60, height: 40 };
+                        break;
+                    case 3:
+                        s = { width: 60, height: 40 };
+                        break;
+                    default:
+                        s = { width: 100, height: 60 };
+                }
                 return objects.Fish({
-                    imageSrc: 'assets/locust.png',
+                    imageSrc: 'assets/mixfatfishsprites.png',
                     center: { x: -100, y: -100 },
-                    size: { width: 60, height: 54 },
-                    moveRate: 1.5,    // pixels per millisecond
+                    size: s,
+                    moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
                 });
         }
@@ -134,7 +237,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }, graphics);
             case "blue":
                 return renderer.AnimatedModel({
-                    spriteSheet: 'assets/raysprites.png',
+                    spriteSheet: 'assets/bluefatfishsprites.png',
                     spriteCount: 8,
                     spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
                 }, graphics);
@@ -144,9 +247,15 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                     spriteCount: 8,
                     spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
                 }, graphics);
+            case "green":
+                return renderer.AnimatedModel({
+                    spriteSheet: 'assets/greenfatfishsprites.png',
+                    spriteCount: 8,
+                    spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
+                }, graphics);
             default:
                 return renderer.AnimatedModel({
-                    spriteSheet: 'assets/raysprites.png',
+                    spriteSheet: 'assets/mixfatfishsprites.png',
                     spriteCount: 8,
                     spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
                 }, graphics);
