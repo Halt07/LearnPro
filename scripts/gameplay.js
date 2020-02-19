@@ -35,13 +35,12 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     Array.prototype.random = function(){return this[Math.floor(Math.random()*this.length)];};
     let promptColor = colors.random();
     let promptNum = Math.floor(Math.random()*10)+1;
-    console.log(promptColor + promptNum);
 
     let Fishies = [];
     for(let i = 0; i < promptNum; i++){
         Fishies[i] = {"fish": createFish(promptColor), "render": createFishRenderer(promptColor), };
     }
-    for(let i = 0; i < 15-promptNum; i++){
+    for(let i = 0; i < 15-promptNum; i++){ //grand total of 15 fish to maintain consitancy while testing graphics
         let randFish = colors.random(); 
         while(randFish == promptColor){ randFish = colors.random(); } //Assure no duplicates of the target color
         Fishies[promptNum + i] = {"fish": createFish(randFish), "render": createFishRenderer(randFish), };
@@ -56,7 +55,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     });
 
     let myInfo = objects.Info({
-        ship: myShip,
+        target: promptNum,
         score: 0,
         color: promptColor,
     });
@@ -280,7 +279,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         });
 
         myInfo = objects.Info({
-            ship: myShip,
+            target: promptNum,
             score: 0,
             color: promptColor,
         });

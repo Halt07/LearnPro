@@ -33,7 +33,7 @@ MyGame.objects.Info = function(spec) {
     });
 
     let myLives = MyGame.objects.Text({
-        text: 'Lives: ' + spec.ship.lives,
+        text: 'Target: ' + spec.target,
         font: '16pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
@@ -44,8 +44,8 @@ MyGame.objects.Info = function(spec) {
         myColor.updateText((spec.color=="ray" || spec.color=="dolphin") ? 'How many ' + spec.color + 's are there?' : 'How many ' + spec.color + ' fish are there?',);
     
         myScore.updateText('Score: ' + spec.score);
-    
-        myLives.updateText('Lives: ' + spec.ship.lives);
+
+        myLives.updateText('Target: ' + spec.target);
     }
 
     function render(){

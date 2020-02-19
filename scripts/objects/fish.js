@@ -70,11 +70,12 @@ MyGame.objects.Fish = function(spec) {
         spec.center.x -= Math.abs(spec.moveRate) * momentum;
 
         if (spec.center.x < 0){
-            spec.center.x = MyGame.graphics.canvas.width;
+            spec.center.x = MyGame.graphics.canvas.width + 100;
+            alive = false;
         }
-        else if(spec.center.x > MyGame.graphics.canvas.width){
-            spec.center.x = 0;
-        }
+        // else if(spec.center.x > MyGame.graphics.canvas.width){
+        //     spec.center.x = 0;
+        // }
     }
 
     function respawn(){
@@ -83,8 +84,8 @@ MyGame.objects.Fish = function(spec) {
         respawnTimer = 0;
         lives = 5;
         alive = true;
-        spec.center.x = Random.nextRange(0,MyGame.graphics.canvas.width);
-        spec.center.y = Random.nextRange(0,MyGame.graphics.canvas.height);
+        spec.center.x = Random.nextRange(MyGame.graphics.canvas.width, 2*MyGame.graphics.canvas.width);
+        spec.center.y = Random.nextRange(0, MyGame.graphics.canvas.height);
     };
 
     function decreaseLives(){
