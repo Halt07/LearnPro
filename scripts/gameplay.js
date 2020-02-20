@@ -31,7 +31,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     initializeAudio();
 
     loadBackgroundMusic();
-    let colors = ["ray", "dolphin", "red", "yellow", "blue", "green", "mix"];
+    let colors = ["ray", "dolphin", "red", "yellow", "blue", "green", "rainbow"];
     Array.prototype.random = function(){return this[Math.floor(Math.random()*this.length)];};
     let promptColor = colors.random();
     let promptNum = Math.floor(Math.random()*10)+1;
@@ -162,7 +162,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                     moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
                 });
-            case "blue":
+            case "green":
                 switch(Math.floor(Math.random()*4)){
                     case 0:
                         s = { width: 80, height: 60 };
@@ -201,7 +201,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                         s = { width: 100, height: 60 };
                 }
                 return objects.Fish({
-                    imageSrc: 'assets/mixfatfishsprites.png',
+                    imageSrc: 'assets/multifatfishsprites.png',
                     center: { x: -100, y: -100 },
                     size: s,
                     moveRate: Math.random()+1,    // pixels per millisecond
@@ -250,7 +250,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }, graphics);
             default:
                 return renderer.AnimatedModel({
-                    spriteSheet: 'assets/mixfatfishsprites.png',
+                    spriteSheet: 'assets/multifatfishsprites.png',
                     spriteCount: 8,
                     spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
                 }, graphics);
