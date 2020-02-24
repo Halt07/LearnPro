@@ -14,6 +14,7 @@
             <ul class = "menu">
                 <li><a href="fishCounter.html"><button id = "id-fish" class="solid">Count With You Fish</button></a></li>
                 <li><button id = "id-forfun" onclick="showScreen('forfun')" class="solid">Classics</button></li>
+                <li><button id = "id-language" onclick="showScreen('language')" class="solid">Languages</button></li>
                 <li><button id = "id-help" class="solid">Help</button></li>
                 <li><button id = "id-about" onclick="showScreen('about')" class="solid">About</button></li>
             </ul>
@@ -23,8 +24,17 @@
             <h1 class="solid">Snake</h1>
                 <iframe src="https://scratch.mit.edu/projects/282379015/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen style="display: block; margin: 0 auto;" SameSite="None"></iframe>
             <ul class = "menu">
-                <li><button id = "id-forfun-back" onclick="showScreen('home-menu')" class="solid">Back</button></li>
+                <li><button class = "id-back solid" onclick="showScreen('home-menu')">Back</button></li>
             </ul>
+        </div>
+
+        <div id="language" class="screen">
+            <h1 class="solid">Languages</h1>
+                <ul class = "menu">
+                    <li><button id = "id-english" onclick="ChangeLanguage('en')" class="solid">English</button></li>
+                    <li><button id = "id-francais" onclick="ChangeLanguage('fr')" class="solid">French</button></li>
+                    <li><button class = "id-back solid" onclick="showScreen('home-menu')">Back</button></li>
+                </ul>
         </div>
 
         <div id="about" class="screen">
@@ -34,10 +44,10 @@
                 <p>Sound effects by Michel Baradari: opengameart.org/users/qubodup</p>
                 <p>Background Music by Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
                 <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector created by kreativkolors - www.freepik.com</a></p>
-                <p>Hyperspace particles and all other assets not specified above by Bryan Christensen</p>
+                <p>All other assets not specified above by Bryan Christensen</p>
             </div>
                 <ul class = "menu">
-                    <li><button id = "id-about-back" onclick="showScreen('home-menu')" class="solid">Back</button></li>
+                    <li><button class = "id-back solid" onclick="showScreen('home-menu')">Back</button></li>
                 </ul>
         </div>
     </div>
@@ -53,7 +63,7 @@
         // Then, set the new screen to be active
         document.getElementById(id).classList.add('active');
         }
-        ChangeHome("fr");
+        ChangeHome(localStorage.LearnProLang);
     </script>
 </body>
 </html>

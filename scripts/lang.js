@@ -2,12 +2,13 @@ lang = {
     "en" : {
         "mainMenu" : {
             "title" : "LearnPro - Learning Together",
-            "buttons" : ["Count With You Fish", "Classics", "Help", "About", "Back"],
+            "buttons" : ["Count With You Fish", "Classics", "Help", "About", "Languages", "Back"],
+            "language" : ["English", "French"],
             "forfun" : ["Snake"],
             "about" : `<h1 class="solid">About</h1>
             <p>Developed by<br/>Bryan Christensen</p>
             <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector created by kreativkolors - www.freepik.com</a></p>
-            <p>Hyperspace particles and all other assets not specified above by Bryan Christensen</p>`,
+            <p>All other assets not specified above by Bryan Christensen</p>`,
         },
         "fishCounter" : {
             "title" : "1 Fish, 2 Fish, Count With You Fish",
@@ -19,7 +20,8 @@ lang = {
     "fr" : {
         "mainMenu" : {
             "title" : "LearnPro - Apprendre Ensemble",
-            "buttons" : ["Compter Poissons", "Jeux Classiques", "Aide", "Infos", "Retour"],
+            "buttons" : ["Compter Poissons", "Jeux Classiques", "Aide", "Infos", "Langues", "Retour"],
+            "language" : ["Anglais", "Français"],
             "forfun" : ["Le Serpent"],
             "about" : `<h1 class="solid">Les Infos</h1>
             <p>Developé par<br/>Bryan Christensen</p>
@@ -32,6 +34,19 @@ lang = {
         },
 
     },
+}
+
+if (typeof(Storage) !== "undefined") {
+    if (!localStorage.LearnProLang) {
+        localStorage.LearnProLang = "en";
+    }
+}
+
+function ChangeLanguage(language){
+    if (typeof(Storage) !== "undefined") {
+            localStorage.LearnProLang = language;
+    }
+    ChangeHome(localStorage.LearnProLang);
 }
 
 
@@ -50,17 +65,29 @@ function ChangeHome(language){
 
     tag = document.getElementById("id-about");
     tag.textContent = lang[language]["mainMenu"].buttons[3];
+    
+    tag = document.getElementById("id-language");
+    tag.textContent = lang[language]["mainMenu"].buttons[4];
+
+    tag = document.getElementById("language");
+    tag = tag.getElementsByTagName("h1")[0];
+    tag.innerHTML = lang[language]["mainMenu"].buttons[4];
+
+    tag = document.getElementById("id-english");
+    tag.textContent = lang[language]["mainMenu"].language[0];
+
+    tag = document.getElementById("id-francais");
+    tag.textContent = lang[language]["mainMenu"].language[1];
 
     tag = document.getElementById("forfun");
     tag = tag.getElementsByTagName("h1")[0];
     tag.innerHTML = lang[language]["mainMenu"].forfun;
 
-    tag = document.getElementById("id-forfun-back");
-    tag.textContent = lang[language]["mainMenu"].buttons[4];
-
     tag = document.getElementById("aboutmain");
     tag.innerHTML = lang[language]["mainMenu"].about;
 
-    tag = document.getElementById("id-about-back");
-    tag.textContent = lang[language]["mainMenu"].buttons[4];
+    tag = document.getElementsByClassName("id-back");
+    for(let i = 0; i < tag.length; i++){
+        tag[i].textContent = lang[language]["mainMenu"].buttons[5];
+    }
 }
