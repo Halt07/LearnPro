@@ -89,7 +89,7 @@ MyGame.systems.ParticleManager = function (systems, renderer, graphics) {
     let scrapRenderer = renderer.ParticleSystem(particlesScrap, graphics, 
         'assets/scrap.png');
     let hyperRenderer = renderer.ParticleSystem(particlesHyper, graphics, 
-        'assets/hyper.png');
+        'assets/bubble.png');
 
     //------------------------------------------------------------------
     //

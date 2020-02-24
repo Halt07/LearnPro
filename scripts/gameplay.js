@@ -12,11 +12,11 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             updateHighScores();
         }
         else {
-            localStorage.one = 10000;
-            localStorage.two = 9000;
-            localStorage.three = 8000;
-            localStorage.four = 7000;
-            localStorage.five = 6000;
+            localStorage.one = 10;
+            localStorage.two = 9;
+            localStorage.three = 8;
+            localStorage.four = 7;
+            localStorage.five = 6;
         }
     }
     highscores[0] = parseInt(localStorage.one);

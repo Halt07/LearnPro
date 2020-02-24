@@ -31,33 +31,39 @@
                 <li id = "5">6</li>
             </ol>
             <ul class = "menu">
-                <li><button id = "id-high-scores-back">Back</button></li>
+                <li><button id = "id-high-scores-back" class = "id-back">Back</button></li>
             </ul>
         </div>
         <div id = "help" class = "screen">
-            <h1>Help</h1>
-            <p>The ↑ key is used for moving forward<br />
-                The ← and → keys are used for turning<br />
-                The z key is used to open a hyperspace window
-            </p>
+            <div id="helpmain">
+                <h1>Help</h1>
+                <p>The ↑ key is used for moving forward<br />
+                    The ← and → keys are used for turning
+                </p>
+            </div>
             <ul class = "menu">
-                <li><button id = "id-help-back">Back</button></li>
+                <li><button id = "id-help-back" class = "id-back">Back</button></li>
             </ul>
         </div>
         <div id = "about" class = "screen">
-            <h1>About</h1>
-            <p>Developed by<br/>Bryan Christensen</p>
-            <p>Sound effects by Michel Baradari: opengameart.org/users/qubodup</p>
-            <p>Background Music by Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
-            <p>Background Image by Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
-            <p>Hyperspace particles and all other assets not specified above by Bryan Christensen</p>
+            <div id="aboutmain">
+                <h1>About</h1>
+                <p>Game Developed by<br/>Bryan Christensen</p>
+                <p>Background Music by Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
+                <p>Background Image by Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+                <p>All other assets not specified above by Bryan Christensen</p>
+            </div>
             <ul class = "menu">
-                <li><button id = "id-about-back">Back</button></li>
+                <li><button id = "id-about-back" class = "id-back">Back</button></li>
             </ul>
         </div>
     </div>
 
+    </div>
+
+    <script src = "scripts/lang.js"></script>
     <script>
+        ChangeFish(localStorage.LearnProLang);
         let MyGame = {
             screens : {},
             input: {},
