@@ -41,11 +41,26 @@ MyGame.objects.Info = function(spec) {
     });
 
     function updateText(){
-        myColor.updateText((spec.color=="ray" || spec.color=="dolphin") ? 'How many ' + spec.color + 's are there?' : 'How many ' + spec.color + ' fish are there?',);
-    
-        myScore.updateText('Score: ' + spec.score);
-
-        myLives.updateText('Target: ' + spec.target);
+        if (localStorage.LearnProLang == "fr"){
+            myColor.updateText('Il y a combien de ' + ((spec.color=="ray" || spec.color=="dolphin") ?  '' : 'poissons ') + TranslateColorFish(spec.color) + '?');
+            myScore.updateText('Récord: ' + spec.score);
+            myLives.updateText('Cible: ' + spec.target);
+        }
+        else if (localStorage.LearnProLang == "it"){
+            myColor.updateText('Ci sono ' + ((spec.color=="ray" || spec.color=="dolphin") ?  (spec.color=="ray" ?  'quante ' : 'quanti ') : 'quanti pesci ') + TranslateColorFish(spec.color) + '?');
+            myScore.updateText('Récord: ' + spec.score);
+            myLives.updateText('Cible: ' + spec.target);
+        }
+        else if (localStorage.LearnProLang == "es"){
+            myColor.updateText('Il y a combien des ' + ((spec.color=="ray" || spec.color=="dolphin") ?  '' : 'poissons ') + TranslateColorFish(spec.color) + 's?');
+            myScore.updateText('Récord: ' + spec.score);
+            myLives.updateText('Cible: ' + spec.target);
+        }
+        else{
+            myColor.updateText((spec.color=="ray" || spec.color=="dolphin") ? 'How many ' + spec.color + 's are there?' : 'How many ' + spec.color + ' fish are there?',);
+            myScore.updateText('Score: ' + spec.score);
+            myLives.updateText('Target: ' + spec.target);
+        }
     }
 
     function render(){

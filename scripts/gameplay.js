@@ -265,10 +265,18 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
         loadBackgroundMusic();
 
-        Fishies[0] = createFish("ray");
-        Fishies[1] = createFish("dolphin");
-        Fishies[2] = createFish("red");
-        Fishies[3] = createFish("yellow");
+        promptColor = colors.random();
+        promptNum = Math.floor(Math.random()*10)+1;
+
+        Fishies.length=0;
+        for(let i = 0; i < promptNum; i++){
+            Fishies[i] = {"fish": createFish(promptColor), "render": createFishRenderer(promptColor), };
+        }
+        for(let i = 0; i < 15-promptNum; i++){ //grand total of 15 fish to maintain consitancy while testing graphics
+            let randFish = colors.random(); 
+            while(randFish == promptColor){ randFish = colors.random(); } //Assure no duplicates of the target color
+            Fishies[promptNum + i] = {"fish": createFish(randFish), "render": createFishRenderer(randFish), };
+        }
 
         myShip = objects.Ship({
             imageSrc: 'assets/locust.png',
@@ -384,12 +392,10 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 updateHighScores();
                 setUp();
                 initialize();
-                document.getElementById('id-new-game').innerHTML = "New&nbsp;Game";
             }
             else{
                 myKeyboard = input.Keyboard();
                 initialize();
-                document.getElementById('id-new-game').innerHTML = "Continue&nbsp;Game";
             }
             
             //
