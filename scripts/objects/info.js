@@ -87,6 +87,11 @@ MyGame.objects.Info = function(spec) {
         lastLife += howMuch;
     }
 
+    function readPrompt(){
+        if (!window.speechSynthesis.speaking)
+            myColor.readText();
+    }
+
     let api = {
         updateText: updateText,
         render: render,
@@ -94,6 +99,7 @@ MyGame.objects.Info = function(spec) {
         changeColor: changeColor,
         setLastLifeIncrease: setLastLifeIncrease,
         resetInfo: resetInfo,
+        readPrompt: readPrompt,
         get color() { return spec.color; },
         get score() { return spec.score; },
         get lastLife() { return lastLife; }

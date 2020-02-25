@@ -16,7 +16,8 @@ lang = {
             "help" : `<h1>Help</h1>
             <p>The ↑ key is used for moving forward<br />
                 The ← and → keys are used for turning<br />
-                Press the Escape Key to start a New Game
+                Press the Escape Key to start a New Game<br />
+                Press the Space Bar to hear the prompt again
             </p>`,
             "about" : `<h1>About</h1>
             <p>Game Developed by<br/>Bryan Christensen</p>
@@ -41,11 +42,12 @@ lang = {
         },
         "fishCounter" : {
             "title" : "1 Poisson, 2 Poissons, Compter des Poissons",
-            "buttons" : ["Nouvelle Partie", "Récords", "Aide", "Infos", "Menu Principal", "Retour"],
+            "buttons" : ["Nouvelle Partie", "Records", "Aide", "Infos", "Menu Principal", "Retour"],
             "help" : `<h1>Aide</h1>
             <p>La touche ↑ avance le sous-marin<br />
                 Les touches ← et → tournent le sous-marin<br />
-                Appuyez la touche Esc pour commencer une nouvelle partie
+                Appuyez la touche Esc pour commencer une nouvelle partie<br />
+                Appuyez la barre d'espacement pour entendre l'invite à nouveau
             </p>`,
             "about" : `<h1>Les Infos</h1>
             <p>Jeu Developé par<br/>Bryan Christensen</p>
@@ -70,13 +72,16 @@ lang = {
         },
         "fishCounter" : {
             "title" : "1 Pesco, 2 Pesci, Contare i Pesci",
-            "buttons" : ["Nouvelle Partie", "Récords", "Aiuto", "Informazioni", "Menu Principal", "Ritorno"],
+            "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principal", "Ritorno"],
             "help" : `<h1>Aiuto</h1>
-            <p>The ↑ key is used for moving forward<br />
-                The ← and → keys are used for turning
+            <p>Il tasto ↑ is used for moving forward<br />
+                I tasti ← e →  are used for turning<br />
+                Prema il tasto Esc per iniziare una nuova partita<br />
+                Prema la barra spaziatrice per ascoltare nuovamente il messaggio
+                
             </p>`,
-            "about" : `<h1>Les Infos</h1>
-            <p>Jeu Developé par<br/>Bryan Christensen</p>
+            "about" : `<h1>Informazioni</h1>
+            <p>Gioco Sviluppato da<br/>Bryan Christensen</p>
             <p>La Musique de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>L'Image de Fond créé par Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
             <p>Tous les autres atouts pas encore specifié créé par Bryan Christensen</p>`,

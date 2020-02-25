@@ -387,23 +387,24 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         myKeyboard.register('ArrowUp', myShip.accelerate);
         myKeyboard.register('ArrowLeft', myShip.turnLeft);
         myKeyboard.register('ArrowRight', myShip.turnRight);
+        myKeyboard.register(' ',myInfo.readPrompt);
         myKeyboard.register('Escape', function() {
             if (confirm("Do you want to end this game?")) {
                 updateHighScores();
                 setUp();
-                initialize();
+                initialize();//
+                // Stop the game loop by canceling the request for the next animation frame
+                cancelNextRequest = true;
+                //
+                // Then, return to the main menu
+                game.showScreen('main-menu');
             }
             else{
                 myKeyboard = input.Keyboard();
                 initialize();
             }
             
-            //
-            // Stop the game loop by canceling the request for the next animation frame
-            cancelNextRequest = true;
-            //
-            // Then, return to the main menu
-            game.showScreen('main-menu');
+            
         });
     }
 
@@ -411,6 +412,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         lastTimeStamp = performance.now();
         cancelNextRequest = false;
         requestAnimationFrame(gameLoop);
+        myInfo.readPrompt();
     }
 
     graphics.canvas.width = window.innerWidth;
