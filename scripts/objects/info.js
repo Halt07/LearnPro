@@ -89,7 +89,7 @@ MyGame.objects.Info = function(spec) {
 
     function readPrompt(){
         if (!window.speechSynthesis.speaking)
-            myColor.readText();
+            myColor.readText(localStorage.LearnProLang);
     }
 
     let api = {

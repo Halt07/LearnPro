@@ -3,7 +3,7 @@ lang = {
         "mainMenu" : {
             "title" : "LearnPro - Learning Together",
             "buttons" : ["Count With You Fish", "Classics", "Contact Us", "About", "Languages", "Back"],
-            "language" : ["English", "French", "Italian"],
+            "language" : ["English", "French", "Italian", "Spanish"],
             "forfun" : ["Snake"],
             "about" : `<h1 class="solid">About</h1>
             <p>LearnPro Developed by<br/>Bryan Christensen</p>
@@ -33,12 +33,12 @@ lang = {
         "mainMenu" : {
             "title" : "LearnPro - Apprendre Ensemble",
             "buttons" : ["Compter Poissons", "Jeux Classiques", "Contacter", "Infos", "Langues", "Retour"],
-            "language" : ["Anglais", "Français", "Italien"],
+            "language" : ["Anglais", "Français", "Italien", "Espagnol"],
             "forfun" : ["Le Serpent"],
             "about" : `<h1 class="solid">Les Infos</h1>
             <p>LearnPro Developé par<br/>Bryan Christensen</p>
             <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector créé par kreativkolors - www.freepik.com</a></p>
-            <p>Tous les autres atouts pas encore specifié créé par Bryan Christensen</p>`,
+            <p>Toutes les autres ressources non spécifiées créées par Bryan Christensen</p>`,
         },
         "fishCounter" : {
             "title" : "1 Poisson, 2 Poissons, Compter des Poissons",
@@ -53,7 +53,7 @@ lang = {
             <p>Jeu Developé par<br/>Bryan Christensen</p>
             <p>La Musique de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>L'Image de Fond créé par Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
-            <p>Tous les autres atouts pas encore specifié créé par Bryan Christensen</p>`,
+            <p>Toutes les autres ressources non spécifiées créées par Bryan Christensen</p>`,
             "colors" : ["raies", "dauphins", "rouges", "jaunes", "bleus", "verts", "arc-en-ciel"],
         },
 
@@ -63,28 +63,59 @@ lang = {
         "mainMenu" : {
             "title" : "LearnPro - Imparare Insieme",
             "buttons" : ["Contare i Pesci", "Giochi Classici", "Contattare", "Informazioni", "Lingue", "Ritorno"],
-            "language" : ["Inglese", "Francese", "Italiano"],
+            "language" : ["Inglese", "Francese", "Italiano", "Spagnolo"],
             "forfun" : ["Il Serpente"],
             "about" : `<h1 class="solid">Informazioni</h1>
-            <p>LearnPro Developé par<br/>Bryan Christensen</p>
-            <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector créé par kreativkolors - www.freepik.com</a></p>
-            <p>Tous les autres atouts pas encore specifié créé par Bryan Christensen</p>`,
+            <p>LearnPro Sviluppato da<br/>Bryan Christensen</p>
+            <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector creata da kreativkolors - www.freepik.com</a></p>
+            <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
         },
         "fishCounter" : {
             "title" : "1 Pesco, 2 Pesci, Contare i Pesci",
             "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principal", "Ritorno"],
             "help" : `<h1>Aiuto</h1>
-            <p>Il tasto ↑ is used for moving forward<br />
-                I tasti ← e →  are used for turning<br />
+            <p>Il tasto ↑ avanza il sottomarino<br />
+                I tasti ← e → giranno il sottomarino<br />
                 Prema il tasto Esc per iniziare una nuova partita<br />
                 Prema la barra spaziatrice per ascoltare nuovamente il messaggio
                 
             </p>`,
             "about" : `<h1>Informazioni</h1>
             <p>Gioco Sviluppato da<br/>Bryan Christensen</p>
-            <p>La Musica de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
-            <p>L'Image de Fond créé par Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
-            <p>Tous les autres atouts pas encore specifié créé par Bryan Christensen</p>`,
+            <p>La Musica di Sottofondo progettata da Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
+            <p>Il Immagine di Sfondo creata da Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+            <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
+            "colors" : ["mante", "delfini", "rossi", "gialli", "azzurri", "verdi", "arcobaleno"],
+        },
+
+    },
+
+    "es" : {
+        "mainMenu" : {
+            "title" : "LearnPro - Imparare Insieme",
+            "buttons" : ["Contare i Pesci", "Giochi Classici", "Contattare", "Informazioni", "Lingue", "Ritorno"],
+            "language" : ["Inglese", "Francese", "Italiano", "Spagnolo"],
+            "forfun" : ["Il Serpente"],
+            "about" : `<h1 class="solid">Informazioni</h1>
+            <p>LearnPro Sviluppato da<br/>Bryan Christensen</p>
+            <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector creata da kreativkolors - www.freepik.com</a></p>
+            <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
+        },
+        "fishCounter" : {
+            "title" : "1 Pesco, 2 Pesci, Contare i Pesci",
+            "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principal", "Ritorno"],
+            "help" : `<h1>Aiuto</h1>
+            <p>Il tasto ↑ avanza il sottomarino<br />
+                I tasti ← e → giranno il sottomarino<br />
+                Prema il tasto Esc per iniziare una nuova partita<br />
+                Prema la barra spaziatrice per ascoltare nuovamente il messaggio
+                
+            </p>`,
+            "about" : `<h1>Informazioni</h1>
+            <p>Gioco Sviluppato da<br/>Bryan Christensen</p>
+            <p>La Musica di Sottofondo progettata da Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
+            <p>Il Immagine di Sfondo creata da Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+            <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
             "colors" : ["mante", "delfini", "rossi", "gialli", "azzurri", "verdi", "arcobaleno"],
         },
 

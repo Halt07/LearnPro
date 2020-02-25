@@ -24,7 +24,7 @@ MyGame.objects.Text = function(spec) {
         rotation += howMuch;
     }
 
-    function readText(){
+    function readText(language){
         var speech = new SpeechSynthesisUtterance();
 
         speech.text = spec.text;
@@ -32,33 +32,17 @@ MyGame.objects.Text = function(spec) {
         speech.rate = 1;
         speech.pitch = 1;
         let l = window.speechSynthesis.getVoices();
-        if(localStorage.LearnProLang == "fr"){
-            for (let i=0;i<l.length;i++){
-                if(l[i].name == "Google français"){
-                    speech.voice = l[i];
-                }
-            }
+        if(language == "fr"){
+            speech.voice = l.find(voice => voice.name == "Google français");
         }
-        else if(localStorage.LearnProLang == "it"){
-            for (let i=0;i<l.length;i++){
-                if(l[i].name == "Google italiano"){
-                    speech.voice = l[i];
-                }
-            }
+        else if(language == "it"){
+            speech.voice = l.find(voice => voice.name == "Google italiano");
         }
-        else if(localStorage.LearnProLang == "es"){
-            for (let i=0;i<l.length;i++){
-                if(l[i].name == "Google español"){
-                    speech.voice = l[i];
-                }
-            }
+        else if(language == "es"){
+            speech.voice = l.find(voice => voice.name == "Google español");
         }
         else{
-            for (let i=0;i<l.length;i++){
-                if(l[i].name == "Google US English"){
-                    speech.voice = l[i];
-                }
-            }
+            speech.voice = l.find(voice => voice.name == "Google US English");
         }
 
         window.speechSynthesis.speak(speech);

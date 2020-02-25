@@ -37,7 +37,7 @@ function initializeAudio() {
             MyGame.sounds['Explosion'].volume = 15 / 100;
             MyGame.sounds['LevelUp'].volume = 8 / 100;
             MyGame.sounds['AlienHive'].volume = 50 / 100;
-            MyGame.sounds['Splash'].volume = 18 / 100;
+            MyGame.sounds['Splash'].volume = 14 / 100;
             changeVolume(1);
         }
         else if(isFirefox){
