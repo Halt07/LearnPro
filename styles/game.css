@@ -16,7 +16,7 @@ canvas{
     display: block;
     width: innerwidth;
     height: innerheight;
-    border-style: solid;
+    border-style: inset;
     border-width: 1px;
     background-image: url("../assets/underwater.jpg");
     background-size: 100%;
@@ -27,7 +27,7 @@ canvas{
     display: block;
     width: innerwidth;
     height: innerheight;
-    border-style: solid;
+    border-style: inset;
     border-width: 1px;
     background-image: url("../assets/learnprologo.png");
     background-position: center;

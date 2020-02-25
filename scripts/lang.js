@@ -2,7 +2,7 @@ lang = {
     "en" : {
         "mainMenu" : {
             "title" : "LearnPro - Learning Together",
-            "buttons" : ["Count With You Fish", "Classics", "Help", "About", "Languages", "Back"],
+            "buttons" : ["Count With You Fish", "Classics", "Contact Us", "About", "Languages", "Back"],
             "language" : ["English", "French", "Italian"],
             "forfun" : ["Snake"],
             "about" : `<h1 class="solid">About</h1>
@@ -32,7 +32,7 @@ lang = {
     "fr" : {
         "mainMenu" : {
             "title" : "LearnPro - Apprendre Ensemble",
-            "buttons" : ["Compter Poissons", "Jeux Classiques", "Aide", "Infos", "Langues", "Retour"],
+            "buttons" : ["Compter Poissons", "Jeux Classiques", "Contacter", "Infos", "Langues", "Retour"],
             "language" : ["Anglais", "Français", "Italien"],
             "forfun" : ["Le Serpent"],
             "about" : `<h1 class="solid">Les Infos</h1>
@@ -62,7 +62,7 @@ lang = {
     "it" : {
         "mainMenu" : {
             "title" : "LearnPro - Imparare Insieme",
-            "buttons" : ["Contare i Pesci", "Giochi Classici", "Aiuto", "Informazioni", "Lingue", "Ritorno"],
+            "buttons" : ["Contare i Pesci", "Giochi Classici", "Contattare", "Informazioni", "Lingue", "Ritorno"],
             "language" : ["Inglese", "Francese", "Italiano"],
             "forfun" : ["Il Serpente"],
             "about" : `<h1 class="solid">Informazioni</h1>
@@ -82,7 +82,7 @@ lang = {
             </p>`,
             "about" : `<h1>Informazioni</h1>
             <p>Gioco Sviluppato da<br/>Bryan Christensen</p>
-            <p>La Musique de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
+            <p>La Musica de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>L'Image de Fond créé par Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
             <p>Tous les autres atouts pas encore specifié créé par Bryan Christensen</p>`,
             "colors" : ["mante", "delfini", "rossi", "gialli", "azzurri", "verdi", "arcobaleno"],
@@ -112,7 +112,10 @@ function ChangeLanguage(language){
 
 function ChangeHome(language){
     //Main Menu
-    let tag = document.getElementById("home-title");
+    let tag = document.getElementsByTagName("title")[0];
+    tag.textContent = lang[language]["mainMenu"].title;
+
+    tag = document.getElementById("home-title");
     tag.textContent = lang[language]["mainMenu"].title;
 
     tag = document.getElementById("id-fish");
@@ -154,7 +157,7 @@ function ChangeHome(language){
     tag.innerHTML = lang[language]["mainMenu"].about;
 
     //All Back Buttons
-    tag = document.getElementsByClassName("id-back");
+    tag = document.getElementsByClassName("class-back");
     for(let i = 0; i < tag.length; i++){
         tag[i].textContent = lang[language]["mainMenu"].buttons[5];
     }
@@ -162,7 +165,10 @@ function ChangeHome(language){
 
 function ChangeFish(language){
     //Fish Counter Menu
-    let tag = document.getElementById("fish-title");
+    let tag = document.getElementsByTagName("title")[0];
+    tag.textContent = lang[language]["fishCounter"].title;
+
+    tag = document.getElementById("fish-title");
     tag.textContent = lang[language]["fishCounter"].title;
 
     tag = document.getElementById("id-new-game");
@@ -194,7 +200,7 @@ function ChangeFish(language){
     tag.innerHTML = lang[language]["fishCounter"].about;
 
     //All Back Buttons
-    tag = document.getElementsByClassName("id-back");
+    tag = document.getElementsByClassName("class-back");
     for(let i = 0; i < tag.length; i++){
         tag[i].textContent = lang[language]["fishCounter"].buttons[5];
     }
