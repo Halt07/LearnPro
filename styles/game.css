@@ -141,3 +141,7 @@ h1 {
 .solid {
     opacity: 1 !important;
 }
+
+.hidden{
+    display: none !important;
+}

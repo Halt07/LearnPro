@@ -37,8 +37,8 @@ function initializeAudio() {
             MyGame.sounds['Explosion'].volume = 15 / 100;
             MyGame.sounds['LevelUp'].volume = 8 / 100;
             MyGame.sounds['AlienHive'].volume = 50 / 100;
-            MyGame.sounds['Splash'].volume = 14 / 100;
-            changeVolume(1);
+            MyGame.sounds['Splash'].volume = 4 / 100;
+            changeVolume(0.75);
         }
         else if(isFirefox){
             MyGame.sounds['Teleport'].volume = 40 / 100;
@@ -62,7 +62,7 @@ function loadBackgroundMusic(){
 }
 
 function playBackground(){
-    if(MyGame.sounds['Background'].currentTime == 0)
+    if(MyGame.sounds['Background'].paused)
         playSound('Background');
 }
 

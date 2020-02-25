@@ -413,6 +413,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         cancelNextRequest = false;
         requestAnimationFrame(gameLoop);
         myInfo.readPrompt();
+        playBackground();
     }
 
     graphics.canvas.width = window.innerWidth;

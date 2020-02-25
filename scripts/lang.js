@@ -36,7 +36,7 @@ lang = {
             "language" : ["Anglais", "Français", "Italien", "Espagnol"],
             "forfun" : ["Le Serpent"],
             "about" : `<h1 class="solid">Les Infos</h1>
-            <p>LearnPro Developé par<br/>Bryan Christensen</p>
+            <p>LearnPro Développé par<br/>Bryan Christensen</p>
             <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector créé par kreativkolors - www.freepik.com</a></p>
             <p>Toutes les autres ressources non spécifiées créées par Bryan Christensen</p>`,
         },
@@ -50,7 +50,7 @@ lang = {
                 Appuyez la barre d'espacement pour entendre l'invite à nouveau
             </p>`,
             "about" : `<h1>Les Infos</h1>
-            <p>Jeu Developé par<br/>Bryan Christensen</p>
+            <p>Jeu Développé par<br/>Bryan Christensen</p>
             <p>La Musique de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>L'Image de Fond créé par Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
             <p>Toutes les autres ressources non spécifiées créées par Bryan Christensen</p>`,
@@ -97,7 +97,7 @@ lang = {
             "language" : ["Inglese", "Francese", "Italiano", "Spagnolo"],
             "forfun" : ["Il Serpente"],
             "about" : `<h1 class="solid">Informazioni</h1>
-            <p>LearnPro Sviluppato da<br/>Bryan Christensen</p>
+            <p>LearnPro Desarrollado por<br/>Bryan Christensen</p>
             <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector creata da kreativkolors - www.freepik.com</a></p>
             <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
         },
@@ -112,7 +112,7 @@ lang = {
                 
             </p>`,
             "about" : `<h1>Informazioni</h1>
-            <p>Gioco Sviluppato da<br/>Bryan Christensen</p>
+            <p>Juego Desarrollado por<br/>Bryan Christensen</p>
             <p>La Musica di Sottofondo progettata da Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>Il Immagine di Sfondo creata da Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
             <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,

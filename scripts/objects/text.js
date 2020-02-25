@@ -41,9 +41,12 @@ MyGame.objects.Text = function(spec) {
         else if(language == "es"){
             speech.voice = l.find(voice => voice.name == "Google español");
         }
-        else{
+        else if(language == "en"){
             speech.voice = l.find(voice => voice.name == "Google US English");
         }
+        // else{
+        //     speech.voice = l.find(voice => voice.default);
+        // }
 
         window.speechSynthesis.speak(speech);
     }
