@@ -88,13 +88,13 @@ MyGame.objects.Info = function(spec) {
             myColor.updateText('Ci sono ' + ((spec.color=="ray" || spec.color=="dolphin") ?  (spec.color=="ray" ?  'quante ' : 'quanti ') : 'quanti pesci ') + TranslateColorFish(spec.color) + '?');
             myScore.updateText('Record: ' + spec.score);
             myLives.updateText('Bersaglio: ' + spec.target);
-            wellDone.updateText('Bene Fatto!');
+            wellDone.updateText('Ben Fatto!');
         }
         else if (localStorage.LearnProLang == "es"){
             myColor.updateText('Il y a combien des ' + ((spec.color=="ray" || spec.color=="dolphin") ?  '' : 'poissons ') + TranslateColorFish(spec.color) + 's?');
             myScore.updateText('Récord: ' + spec.score);
             myLives.updateText('Cible: ' + spec.target);
-            wellDone.updateText('Bien Fait!');
+            wellDone.updateText('Bien Hecho!');
         }
         else{
             myColor.updateText((spec.color=="ray" || spec.color=="dolphin") ? 'How many ' + spec.color + 's are there?' : 'How many ' + spec.color + ' fish are there?',);
