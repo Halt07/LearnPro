@@ -264,9 +264,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         myKeyboard = input.Keyboard();
         manager = systems.ParticleManager(systems, renderer, graphics);
         
-        initializeAudio();
+        // initializeAudio();
 
-        loadBackgroundMusic();
+        // loadBackgroundMusic();
 
         promptColor = colors.random();
         promptNum = Math.floor(Math.random()*10)+1;
@@ -290,12 +290,9 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             manager: manager,
         });
 
-        myInfo = objects.Info({
-            target: promptNum,
-            answer: promptAnswer,
-            score: 0,
-            color: promptColor,
-        });
+        myInfo.changeColor(promptColor);
+        myInfo.changeTarget(promptNum);
+        myInfo.changeAnswer(promptAnswer);
     }
 
 
@@ -475,8 +472,10 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 break;
             case 2: range = { l: graphics.canvas.width*0.6, r: graphics.canvas.width*0.8};
         }
-        if (range.l < x && x < range.r)
-            console.log("x: " + x + " y: " + y);
+        if (range.l < x && x < range.r){
+            myInfo.goodJob();
+            setUp();
+        }
     }
     
     graphics.canvas.addEventListener('mousedown', getCursorPosition);
