@@ -261,7 +261,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     }
 
     function setUp(){
-        myKeyboard = input.Keyboard();
         manager = systems.ParticleManager(systems, renderer, graphics);
         
         // initializeAudio();
