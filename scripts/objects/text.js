@@ -24,6 +24,12 @@ MyGame.objects.Text = function(spec) {
         rotation += howMuch;
     }
 
+    function colorBlink(newColor, time){
+        let oldStyle = spec.fillStyle;
+        spec.fillStyle = newColor;
+        setTimeout(function(){spec.fillStyle=oldStyle;},time);
+    }
+
     function readText(language){
         var speech = new SpeechSynthesisUtterance();
 
@@ -55,6 +61,7 @@ MyGame.objects.Text = function(spec) {
         updateRotation: updateRotation,
         updateText: updateText,
         readText: readText,
+        colorBlink: colorBlink,
         get rotation() { return rotation; },
         get position() { return spec.position; },
         get text() { return spec.text; },

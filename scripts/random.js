@@ -14,7 +14,7 @@ let Random = (function() {
 
     function nextRange(min, max) {
         let range = max - min;
-        return Math.floor((Math.random() * range) + min);
+        return Math.floor(Math.random() * range) + min;
     }
 
     function nextCircleVector() {

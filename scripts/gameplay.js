@@ -34,7 +34,8 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     let colors = ["ray", "dolphin", "red", "yellow", "blue", "green", "rainbow"];
     Array.prototype.random = function(){return this[Math.floor(Math.random()*this.length)];};
     let promptColor = colors.random();
-    let promptNum = Math.floor(Math.random()*10)+1;
+    let promptNum = Random.nextRange(1,11);
+    let promptAnswer = Random.nextRange(0,3);
 
     let Fishies = [];
     for(let i = 0; i < promptNum; i++){
@@ -56,12 +57,13 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
     let myInfo = objects.Info({
         target: promptNum,
+        answer: promptAnswer,
         score: 0,
         color: promptColor,
     });
 
     function createFish(type){
-        let fishcenter = { x: 10, y: -200 };
+        let fishcenter = { x: graphics.canvas.width, y: -200 };
         var s;
         switch(type){
             case "ray":
@@ -268,6 +270,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
         promptColor = colors.random();
         promptNum = Math.floor(Math.random()*10)+1;
+        promptAnswer = Random.nextRange(0,3);
 
         Fishies.length=0;
         for(let i = 0; i < promptNum; i++){
@@ -289,6 +292,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
         myInfo = objects.Info({
             target: promptNum,
+            answer: promptAnswer,
             score: 0,
             color: promptColor,
         });
@@ -316,15 +320,23 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             }
         }
         //TODO: Change LevelUp State
-        if(false){
-            myInfo.changeColor();
-            playSound('LevelUp');
+        if(!lookForFishies()){
+            myInfo.showAnswers();
+            // playSound('LevelUp');
         }
         myInfo.updateText();
         if(myInfo.score > 10000 + myInfo.lastLife){
             myShip.increaseLives();
             myInfo.setLastLifeIncrease(10000);
         }
+    }
+
+    function lookForFishies(){
+        for(var i=0; i<Fishies.length; i++){
+            if(Fishies[i].fish.firstlife)
+                return true;
+        }
+        return false;
     }
 
     function render() {
@@ -451,6 +463,23 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             game.showScreen('main-menu');
         }
     });
+
+    function getCursorPosition(event) {
+        //Checking for correct answer
+        const rect = graphics.canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        let range = { l: graphics.canvas.width*0.4, r: graphics.canvas.width*0.6};
+        switch(promptAnswer){
+            case 0: range = { l: graphics.canvas.width*0.2, r: graphics.canvas.width*0.4};
+                break;
+            case 2: range = { l: graphics.canvas.width*0.6, r: graphics.canvas.width*0.8};
+        }
+        if (range.l < x && x < range.r)
+            console.log("x: " + x + " y: " + y);
+    }
+    
+    graphics.canvas.addEventListener('mousedown', getCursorPosition);
     
     return {
         initialize : initialize,

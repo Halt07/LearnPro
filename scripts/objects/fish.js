@@ -46,7 +46,7 @@ MyGame.objects.Fish = function(spec) {
     }
 
     function update(elapsedTime) {
-        if(alive && firstlife){        
+        if(alive){        
             bubbleTimer += elapsedTime;
             accTimer += elapsedTime;
 
@@ -73,11 +73,10 @@ MyGame.objects.Fish = function(spec) {
         if (spec.center.x < 0){
             spec.center.x = MyGame.graphics.canvas.width + 300;
             alive = false;
+        }
+        if(spec.center.x < MyGame.graphics.canvas.width*0.5){
             firstlife = false;
         }
-        // else if(spec.center.x > MyGame.graphics.canvas.width){
-        //     spec.center.x = 0;
-        // }
     }
 
     function respawn(){
@@ -87,7 +86,7 @@ MyGame.objects.Fish = function(spec) {
         lives = 5;
         alive = true;
         spec.center.x = Random.nextRange(MyGame.graphics.canvas.width, 2*MyGame.graphics.canvas.width);
-        spec.center.y = Random.nextRange(0, MyGame.graphics.canvas.height);
+        spec.center.y = Random.nextRange(50, MyGame.graphics.canvas.height-100);
     };
 
     function decreaseLives(){
@@ -120,6 +119,7 @@ MyGame.objects.Fish = function(spec) {
         get image() { return image; },
         get alive() { return alive; },
         get lives() { return lives; },
+        get firstlife() { return firstlife; },
         get rotation() {return rotation; },
     };
     return api;
