@@ -20,6 +20,7 @@ MyGame.objects.Fish = function(spec) {
     }
     
     let alive = false;
+    let firstlife = true;
     let respawnTimer = 0;
 
     let imageReady = false;
@@ -45,7 +46,7 @@ MyGame.objects.Fish = function(spec) {
     }
 
     function update(elapsedTime) {
-        if(alive){        
+        if(alive && firstlife){        
             bubbleTimer += elapsedTime;
             accTimer += elapsedTime;
 
@@ -60,7 +61,7 @@ MyGame.objects.Fish = function(spec) {
         }
         else{
             respawnTimer += elapsedTime;
-            if(respawnTimer > Random.nextRange(7000,15000)){ //Respawn somewhere between 7 and 15 seconds
+            if(respawnTimer > Random.nextRange(5000,10000) && firstlife){ //Respawn somewhere between 7 and 15 seconds
                 respawn();
             }
         }
@@ -70,8 +71,9 @@ MyGame.objects.Fish = function(spec) {
         spec.center.x -= Math.abs(spec.moveRate) * momentum;
 
         if (spec.center.x < 0){
-            spec.center.x = MyGame.graphics.canvas.width + 100;
+            spec.center.x = MyGame.graphics.canvas.width + 300;
             alive = false;
+            firstlife = false;
         }
         // else if(spec.center.x > MyGame.graphics.canvas.width){
         //     spec.center.x = 0;

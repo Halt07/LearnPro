@@ -61,6 +61,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     });
 
     function createFish(type){
+        let fishcenter = { x: 10, y: -200 };
         var s;
         switch(type){
             case "ray":
@@ -73,7 +74,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }
                 return objects.Fish({
                     imageSrc: 'assets/raysprites.png',
-                    center: { x: -100, y: -100 },
+                    center: fishcenter,
                     size: s,
                     moveRate: 1,    // pixels per millisecond
                     manager: manager
@@ -91,7 +92,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }
                 return objects.Fish({
                     imageSrc: 'assets/dolphinsprites.png',
-                    center: { x: -100, y: -100 },
+                    center: fishcenter,
                     size: s,
                     moveRate: Math.random()+1.75,    // pixels per millisecond
                     manager: manager
@@ -112,7 +113,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }
                 return objects.Fish({
                     imageSrc: 'assets/redfatfishsprites.png',
-                    center: { x: -100, y: -100 },
+                    center: fishcenter,
                     size: s,
                     moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
@@ -133,7 +134,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }
                 return objects.Fish({
                     imageSrc: 'assets/bluefatfishsprites.png',
-                    center: { x: -100, y: -100 },
+                    center: fishcenter,
                     size: s,
                     moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
@@ -157,7 +158,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }
                 return objects.Fish({
                     imageSrc: 'assets/yellowfatfishsprites.png',
-                    center: { x: -100, y: -100 },
+                    center: fishcenter,
                     size: s,
                     moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
@@ -178,7 +179,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }
                 return objects.Fish({
                     imageSrc: 'assets/greenfatfishsprites.png',
-                    center: { x: -100, y: -100 },
+                    center: fishcenter,
                     size: s,
                     moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
@@ -202,7 +203,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 }
                 return objects.Fish({
                     imageSrc: 'assets/multifatfishsprites.png',
-                    center: { x: -100, y: -100 },
+                    center: fishcenter,
                     size: s,
                     moveRate: Math.random()+1,    // pixels per millisecond
                     manager: manager
@@ -408,11 +409,37 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         });
     }
 
+    function findProperVoice(){
+        if (window.speechSynthesis){
+            var speech = new SpeechSynthesisUtterance();
+
+            speech.text = '';
+            speech.volume = 1;
+            speech.rate = 1;
+            speech.pitch = 1;
+            let l = window.speechSynthesis.getVoices();
+            if(localStorage.LearnProLang == "fr"){
+                speech.voice = l.find(voice => voice.name == "Google français");
+            }
+            else if(localStorage.LearnProLang == "it"){
+                speech.voice = l.find(voice => voice.name == "Google italiano");
+            }
+            else if(localStorage.LearnProLang == "es"){
+                speech.voice = l.find(voice => voice.name == "Google español");
+            }
+            else if(localStorage.LearnProLang == "en"){
+                speech.voice = l.find(voice => voice.name == "Google US English");
+            }
+        }
+    }
+
     function run() {
         lastTimeStamp = performance.now();
         cancelNextRequest = false;
         requestAnimationFrame(gameLoop);
-        myInfo.readPrompt();
+        
+        findProperVoice();
+        setTimeout(myInfo.readPrompt,1000);
         playBackground();
     }
 
