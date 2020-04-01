@@ -20,6 +20,10 @@ MyGame.objects.Text = function(spec) {
         spec.text = text;
     }
 
+    function setPosition(pos){
+        spec.position = pos;
+    }
+
     function updateRotation(howMuch) {
         rotation += howMuch;
     }
@@ -62,6 +66,7 @@ MyGame.objects.Text = function(spec) {
         updateText: updateText,
         readText: readText,
         colorBlink: colorBlink,
+        setPosition: setPosition,
         get rotation() { return rotation; },
         get position() { return spec.position; },
         get text() { return spec.text; },

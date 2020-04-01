@@ -61,7 +61,7 @@ MyGame.objects.Fish = function(spec) {
         }
         else{
             respawnTimer += elapsedTime;
-            if(respawnTimer > Random.nextRange(5000,10000) && firstlife){ //Respawn somewhere between 7 and 15 seconds
+            if(respawnTimer > Random.nextRange(4500,9000) && firstlife){ //Respawn somewhere between 4.5 and 9 seconds
                 respawn();
             }
         }
