@@ -50,7 +50,7 @@ MyGame.objects.Info = function(spec) {
         font: '80pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: window.innerWidth*0.25, y: window.innerHeight*0.35 }
+        position: { x: MyGame.graphics.canvas.width*0.25, y: MyGame.graphics.canvas.width*0.35 }
     });
 
     let mid = MyGame.objects.Text({
@@ -58,7 +58,7 @@ MyGame.objects.Info = function(spec) {
         font: '80pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: window.innerWidth*0.45, y: window.innerHeight*0.35 }
+        position: { x: MyGame.graphics.canvas.width*0.45, y: MyGame.graphics.canvas.width*0.35 }
     });
 
     let right = MyGame.objects.Text({
@@ -66,7 +66,7 @@ MyGame.objects.Info = function(spec) {
         font: '80pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: window.innerWidth*0.65, y: window.innerHeight*0.35 }
+        position: { x: MyGame.graphics.canvas.width*0.65, y: MyGame.graphics.canvas.width*0.35 }
     });
 
     let wellDone = MyGame.objects.Text({
@@ -74,7 +74,7 @@ MyGame.objects.Info = function(spec) {
         font: '100pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: window.innerWidth*0.3, y: window.innerHeight*0.35 }
+        position: { x: MyGame.graphics.canvas.width*0.3, y: MyGame.graphics.canvas.width*0.35 }
     });
 
     function updateText(){

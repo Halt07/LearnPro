@@ -3,7 +3,7 @@ body {
 }
 
 canvas{
-    background-image: url("../assets/underwater.jpg");
+    background-image: url("../fish/assets/underwater.jpg");
     background-size: 100%;
     display: block;
     margin: 0 auto;
@@ -18,7 +18,7 @@ canvas{
     height: innerheight;
     border-style: inset;
     border-width: 1px;
-    background-image: url("../assets/underwater.jpg");
+    background-image: url("../fish/assets/underwater.jpg");
     background-size: 100%;
     font-size: 40px;
 }

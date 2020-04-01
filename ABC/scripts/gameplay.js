@@ -281,13 +281,13 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
             Fishies[promptNum + i] = {"fish": createFish(randFish), "render": createFishRenderer(randFish), };
         }
 
-        myShip = objects.Ship({
-            imageSrc: 'assets/locust.png',
-            center: { x: graphics.canvas.width / 2, y: graphics.canvas.height / 2 },
-            size: { width: 50, height: 50 },
-            moveRate: 0,    // pixels per millisecond
-            manager: manager,
-        });
+        // myShip = objects.Ship({
+        //     imageSrc: 'assets/locust.png',
+        //     center: { x: graphics.canvas.width / 2, y: graphics.canvas.height / 2 },
+        //     size: { width: 50, height: 50 },
+        //     moveRate: 0,    // pixels per millisecond
+        //     manager: manager,
+        // });
 
         myInfo.changeColor(promptColor);
         myInfo.changeTarget(promptNum);
@@ -315,7 +315,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
                 gameover();
             }
         }
-        //TODO: Change LevelUp State
         if(!lookForFishies()){
             myInfo.showAnswers();
             // playSound('LevelUp');
