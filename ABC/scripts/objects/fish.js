@@ -61,7 +61,7 @@ MyGame.objects.Fish = function(spec) {
         }
         else{
             respawnTimer += elapsedTime;
-            if(respawnTimer > Random.nextRange(5000,10000) && firstlife){ //Respawn somewhere between 7 and 15 seconds
+            if(respawnTimer > Random.nextRange(4500,9000) && firstlife){ //Respawn somewhere between 4.5 and 9 seconds
                 respawn();
             }
         }
@@ -93,7 +93,6 @@ MyGame.objects.Fish = function(spec) {
         lives--;
         if(lives < 1){
             alive = false;
-            spec.manager.createShipExplosion({x: spec.center.x, y: spec.center.y});
             
             if (spec.size.width === 75){
                 stopSound('AlienHive');

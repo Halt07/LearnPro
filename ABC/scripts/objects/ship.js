@@ -23,9 +23,6 @@ MyGame.objects.Ship = function(spec) {
     let hyperSpaceReady = false;
     let hyperTimer = 0;
 
-    let activeFire = false;
-    let fireTimer = 0;
-
     image.onload = function() {
         imageReady = true;
     };
@@ -109,7 +106,6 @@ MyGame.objects.Ship = function(spec) {
     function decreaseLives(){
         lives--;
 
-        spec.manager.createShipExplosion({x: spec.center.x, y: spec.center.y});
         playSound('Explosion');
         //Check for safe spot to respawn
         let randx = Random.nextRange(0, MyGame.graphics.canvas.width);

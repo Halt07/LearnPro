@@ -31,267 +31,78 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     initializeAudio();
 
     loadBackgroundMusic();
-    let colors = ["ray", "dolphin", "red", "yellow", "blue", "green", "rainbow"];
     Array.prototype.random = function(){return this[Math.floor(Math.random()*this.length)];};
-    let promptColor = colors.random();
-    let promptNum = Random.nextRange(1,11);
-    let promptAnswer = Random.nextRange(0,3);
+    let promptLetter = "a";
+    let promptNum = Random.nextRange(0,objects.AnimalDict[localStorage.LearnProLang]["a"].animals.length);
 
-    let Fishies = [];
-    for(let i = 0; i < promptNum; i++){
-        Fishies[i] = {"fish": createFish(promptColor), "render": createFishRenderer(promptColor), };
+    let answers = [promptLetter];
+    for(let i=0; i<5; i++){
+        let character = getRandomLetter();
+        while(answers.indexOf(character) > -1){
+            character = getRandomLetter();
+        }
+        answers.push(character);
     }
-    for(let i = 0; i < 15-promptNum; i++){ //grand total of 15 fish to maintain consitancy while testing graphics
-        let randFish = colors.random(); 
-        while(randFish == promptColor){ randFish = colors.random(); } //Assure no duplicates of the target color
-        Fishies[promptNum + i] = {"fish": createFish(randFish), "render": createFishRenderer(randFish), };
-    }
+    shuffle(answers);
+    let promptAnswer = answers.indexOf(promptLetter)
+    
 
-    let myShip = objects.Ship({
-        imageSrc: 'assets/locust.png',
-        center: { x: graphics.canvas.width / 2, y: graphics.canvas.height / 2 },
-        size: { width: 50, height: 50 },
-        moveRate: 0,    // pixels per millisecond
-        manager: manager,
-    });
 
     let myInfo = objects.Info({
         target: promptNum,
-        answer: promptAnswer,
+        answer: answers,
         score: 0,
-        color: promptColor,
+        letter: promptLetter,
     });
 
-    function createFish(type){
-        let fishcenter = { x: graphics.canvas.width, y: -200 };
-        var s;
-        switch(type){
-            case "ray":
-                switch(Math.floor(Math.random()*2)){
-                    case 0:
-                        s = { width: 122, height: 50 };
-                        break;
-                    default:
-                        s = { width: 165, height: 68 };
-                }
-                return objects.Fish({
-                    imageSrc: 'assets/raysprites.png',
-                    center: fishcenter,
-                    size: s,
-                    moveRate: 1,    // pixels per millisecond
-                    manager: manager
-                });
-            case "dolphin":
-                switch(Math.floor(Math.random()*3)){
-                    case 0:
-                        s = { width: 122, height: 80 };
-                        break;
-                    case 1:
-                        s = { width: 100, height: 66 };
-                        break;
-                    default:
-                        s = { width: 145, height: 96 };
-                }
-                return objects.Fish({
-                    imageSrc: 'assets/dolphinsprites.png',
-                    center: fishcenter,
-                    size: s,
-                    moveRate: Math.random()+1.75,    // pixels per millisecond
-                    manager: manager
-                });
-            case "red":
-                switch(Math.floor(Math.random()*4)){
-                    case 0:
-                        s = { width: 80, height: 60 };
-                        break;
-                    case 1:
-                        s = { width: 60, height: 50 };
-                        break;
-                    case 2:
-                        s = { width: 80, height: 32 };
-                        break;
-                    default:
-                        s = { width: 100, height: 60 };
-                }
-                return objects.Fish({
-                    imageSrc: 'assets/redfatfishsprites.png',
-                    center: fishcenter,
-                    size: s,
-                    moveRate: Math.random()+1,    // pixels per millisecond
-                    manager: manager
-                });
-            case "blue":
-                switch(Math.floor(Math.random()*4)){
-                    case 0:
-                        s = { width: 80, height: 60 };
-                        break;
-                    case 1:
-                        s = { width: 60, height: 50 };
-                        break;
-                    case 3:
-                        s = { width: 100, height: 40 };
-                        break;
-                    default:
-                        s = { width: 80, height: 32 };
-                }
-                return objects.Fish({
-                    imageSrc: 'assets/bluefatfishsprites.png',
-                    center: fishcenter,
-                    size: s,
-                    moveRate: Math.random()+1,    // pixels per millisecond
-                    manager: manager
-                });
-            case "yellow":
-                switch(Math.floor(Math.random()*5)){
-                    case 0:
-                        s = { width: 80, height: 60 };
-                        break;
-                    case 1:
-                        s = { width: 60, height: 50 };
-                        break;
-                    case 2:
-                        s = { width: 60, height: 40 };
-                        break;
-                    case 3:
-                        s = { width: 100, height: 40 };
-                        break;
-                    default:
-                        s = { width: 100, height: 60 };
-                }
-                return objects.Fish({
-                    imageSrc: 'assets/yellowfatfishsprites.png',
-                    center: fishcenter,
-                    size: s,
-                    moveRate: Math.random()+1,    // pixels per millisecond
-                    manager: manager
-                });
-            case "green":
-                switch(Math.floor(Math.random()*4)){
-                    case 0:
-                        s = { width: 80, height: 60 };
-                        break;
-                    case 1:
-                        s = { width: 60, height: 50 };
-                        break;
-                    case 3:
-                        s = { width: 100, height: 40 };
-                        break;
-                    default:
-                        s = { width: 80, height: 32 };
-                }
-                return objects.Fish({
-                    imageSrc: 'assets/greenfatfishsprites.png',
-                    center: fishcenter,
-                    size: s,
-                    moveRate: Math.random()+1,    // pixels per millisecond
-                    manager: manager
-                });
-            default:
-                switch(Math.floor(Math.random()*5)){
-                    case 0:
-                        s = { width: 80, height: 60 };
-                        break;
-                    case 1:
-                        s = { width: 60, height: 50 };
-                        break;
-                    case 2:
-                        s = { width: 60, height: 40 };
-                        break;
-                    case 3:
-                        s = { width: 60, height: 40 };
-                        break;
-                    default:
-                        s = { width: 100, height: 60 };
-                }
-                return objects.Fish({
-                    imageSrc: 'assets/multifatfishsprites.png',
-                    center: fishcenter,
-                    size: s,
-                    moveRate: Math.random()+1,    // pixels per millisecond
-                    manager: manager
-                });
+    function getRandomLetter(){
+        let possible="abcdefghijklmnopqrstuvwxyz";
+        switch(localStorage.LearnProLang){
+            case "it":
+                possible = possible.replace('j','');
+                possible = possible.replace('x','');
+                break;
+            case "es":
+                possible = possible.replace('u','');
+            case "fr":
+                possible = possible.replace('q','');
+                possible = possible.replace('x','');
+                break;
         }
+        return possible.charAt(Math.floor(Math.random() * possible.length));
     }
 
-    function createFishRenderer(type){
-        switch(type){
-            case "ray":
-                return renderer.AnimatedModel({
-                    spriteSheet: 'assets/raysprites.png',
-                    spriteCount: 8,
-                    spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
-                }, graphics);
-            case "dolphin":
-                return renderer.AnimatedModel({
-                    spriteSheet: 'assets/dolphinsprites.png',
-                    spriteCount: 5,
-                    spriteTime: [150, 150, 150, 150, 150],   // ms per frame
-                }, graphics);
-            case "red":
-                return renderer.AnimatedModel({
-                    spriteSheet: 'assets/redfatfishsprites.png',
-                    spriteCount: 8,
-                    spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
-                }, graphics);
-            case "blue":
-                return renderer.AnimatedModel({
-                    spriteSheet: 'assets/bluefatfishsprites.png',
-                    spriteCount: 8,
-                    spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
-                }, graphics);
-            case "yellow":
-                return renderer.AnimatedModel({
-                    spriteSheet: 'assets/yellowfatfishsprites.png',
-                    spriteCount: 8,
-                    spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
-                }, graphics);
-            case "green":
-                return renderer.AnimatedModel({
-                    spriteSheet: 'assets/greenfatfishsprites.png',
-                    spriteCount: 8,
-                    spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
-                }, graphics);
-            default:
-                return renderer.AnimatedModel({
-                    spriteSheet: 'assets/multifatfishsprites.png',
-                    spriteCount: 8,
-                    spriteTime: [120, 120, 120, 120, 120, 120, 120, 120],   // ms per frame
-                }, graphics);
+    function shuffle(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
         }
     }
 
     function setUp(){
         manager = systems.ParticleManager(systems, renderer, graphics);
         
-        // initializeAudio();
-
-        // loadBackgroundMusic();
-
-        promptColor = colors.random();
-        promptNum = Math.floor(Math.random()*10)+1;
-        promptAnswer = Random.nextRange(0,3);
-
-        Fishies.length=0;
-        for(let i = 0; i < promptNum; i++){
-            Fishies[i] = {"fish": createFish(promptColor), "render": createFishRenderer(promptColor), };
+        promptLetter = "a";
+        promptNum = Random.nextRange(0,objects.AnimalDict[localStorage.LearnProLang]["a"].animals.length);
+        answers.length=0;
+        answers = [promptLetter];
+        for(let i=0; i<5; i++){
+            let character = getRandomLetter();
+            while(answers.indexOf(character) > -1){
+                character = getRandomLetter();
+            }
+            answers.push(character);
         }
-        for(let i = 0; i < 15-promptNum; i++){ //grand total of 15 fish to maintain consitancy while testing graphics
-            let randFish = colors.random(); 
-            while(randFish == promptColor){ randFish = colors.random(); } //Assure no duplicates of the target color
-            Fishies[promptNum + i] = {"fish": createFish(randFish), "render": createFishRenderer(randFish), };
-        }
+        shuffle(answers);
+        promptAnswer = answers.indexOf(promptLetter)
 
-        // myShip = objects.Ship({
-        //     imageSrc: 'assets/locust.png',
-        //     center: { x: graphics.canvas.width / 2, y: graphics.canvas.height / 2 },
-        //     size: { width: 50, height: 50 },
-        //     moveRate: 0,    // pixels per millisecond
-        //     manager: manager,
-        // });
+        
 
-        myInfo.changeColor(promptColor);
+        myInfo.changeLetter(promptLetter);
         myInfo.changeTarget(promptNum);
-        myInfo.changeAnswer(promptAnswer);
+        myInfo.changeAnswer(answers);
     }
 
 
@@ -302,48 +113,23 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     function update(elapsedTime) {
         timer += elapsedTime;
         
-        myShip.update(elapsedTime);
         manager.update(elapsedTime);
-        for(let i = 0; i< Fishies.length; i++){
-            Fishies[i]["fish"].update(elapsedTime);
-            Fishies[i]["render"].update(elapsedTime);
-        }
+        
         //TODO: Change End Game State
         if(false){
-            myShip.decreaseLives();
-            if(myShip.lives==0){
-                gameover();
-            }
-        }
-        if(!lookForFishies()){
             myInfo.showAnswers();
             // playSound('LevelUp');
         }
         myInfo.updateText();
         if(myInfo.score > 10000 + myInfo.lastLife){
-            myShip.increaseLives();
             myInfo.setLastLifeIncrease(10000);
         }
-    }
-
-    function lookForFishies(){
-        for(var i=0; i<Fishies.length; i++){
-            if(Fishies[i].fish.firstlife)
-                return true;
-        }
-        return false;
     }
 
     function render() {
         graphics.clear();
 
         manager.render();
-        
-        renderer.Ship.render(myShip);
-        
-        for(let i = 0; i < Fishies.length; i++){
-            Fishies[i]["render"].render(Fishies[i]["fish"]);
-        }
         
         myInfo.render();
     }
@@ -388,13 +174,6 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     }
 
     function initialize() {
-        myKeyboard.register('z', myShip.hyperspace);
-        myKeyboard.register('w', myShip.accelerate);
-        myKeyboard.register('a', myShip.turnLeft);
-        myKeyboard.register('d', myShip.turnRight);
-        myKeyboard.register('ArrowUp', myShip.accelerate);
-        myKeyboard.register('ArrowLeft', myShip.turnLeft);
-        myKeyboard.register('ArrowRight', myShip.turnRight);
         myKeyboard.register(' ',myInfo.readPrompt);
         myKeyboard.register('Escape', function() {
             if (confirm("Do you want to end this game?")) {
@@ -464,13 +243,20 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         const rect = graphics.canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
-        let range = { l: graphics.canvas.width*0.4, r: graphics.canvas.width*0.6};
+        let range = { l: graphics.canvas.width*0.4, r: graphics.canvas.width*0.6, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
         switch(promptAnswer){
-            case 0: range = { l: graphics.canvas.width*0.2, r: graphics.canvas.width*0.4};
+            case 0: range = { l: graphics.canvas.width*0.2, r: graphics.canvas.width*0.4, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
                 break;
-            case 2: range = { l: graphics.canvas.width*0.6, r: graphics.canvas.width*0.8};
+            case 2: range = { l: graphics.canvas.width*0.6, r: graphics.canvas.width*0.8, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
+                break;
+            case 3: range = { l: graphics.canvas.width*0.2, r: graphics.canvas.width*0.4, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
+                break;
+            case 4: range = { l: graphics.canvas.width*0.4, r: graphics.canvas.width*0.6, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
+                break;
+            case 5: range = { l: graphics.canvas.width*0.6, r: graphics.canvas.width*0.8, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
+                break;
         }
-        if (range.l < x && x < range.r){
+        if (range.l < x && x < range.r && range.t < y && y < range.b ){
             myInfo.goodJob();
             setUp();
         }

@@ -7,7 +7,6 @@ MyGame.systems.ParticleManager = function (systems, renderer, graphics) {
     'use strict';
     let thrusterTime = 0;
     let expTime = 0;
-    let scrapTime = 0;
     let hyperTime = 0;
 
     console.log('game initializing...');
@@ -48,22 +47,7 @@ MyGame.systems.ParticleManager = function (systems, renderer, graphics) {
         expTime = 0;
     }
 
-    let particlesScrap = systems.ParticleSystem({
-        center: { x: 300, y: 300 },
-        size: { mean: 20, stdev: 3 },
-        direction: Random.nextCircleVector(),
-        speed: { mean: 65, stdev: 35 },
-        lifetime: { mean: 1, stdev: .25},
-        rotation: 0,
-        active: false,
-        spin: true,
-        hasDirection: false,
-    });
-    function createShipExplosion(spec){
-        particlesScrap.setCenter({ x: spec.x, y: spec.y });
-        particlesScrap.setActive(true);
-        scrapTime = 0;
-    }
+    
 
     let particlesHyper = systems.ParticleSystem({
         center: { x: 300, y: 300 },
@@ -83,13 +67,11 @@ MyGame.systems.ParticleManager = function (systems, renderer, graphics) {
     }
 
     let bubbleRenderer = renderer.ParticleSystem(particlesBubble, graphics, 
-        'assets/bubble.png');
+        'fish/assets/bubble.png');
     let debrisRenderer = renderer.ParticleSystem(particlesDebris, graphics, 
-        'assets/bubble.png');
-    let scrapRenderer = renderer.ParticleSystem(particlesScrap, graphics, 
-        'assets/scrap.png');
+        'fish/assets/bubble.png');
     let hyperRenderer = renderer.ParticleSystem(particlesHyper, graphics, 
-        'assets/bubble.png');
+        'fish/assets/bubble.png');
 
     //------------------------------------------------------------------
     //
@@ -99,17 +81,12 @@ MyGame.systems.ParticleManager = function (systems, renderer, graphics) {
     function update(elapsedTime) {
         thrusterTime += elapsedTime;
         expTime += elapsedTime;
-        scrapTime += elapsedTime;
         hyperTime += elapsedTime;
         particlesBubble.update(elapsedTime);
         particlesDebris.update(elapsedTime);
-        particlesScrap.update(elapsedTime);
         particlesHyper.update(elapsedTime);
         if(thrusterTime>40){ // 1/25 second
             particlesBubble.setActive(false);
-        }
-        if(scrapTime>250){ // 1/4 second
-            particlesScrap.setActive(false);
         }
         if(expTime>250){ // 1/4 second
             particlesDebris.setActive(false);
@@ -127,7 +104,6 @@ MyGame.systems.ParticleManager = function (systems, renderer, graphics) {
     function render() {
         debrisRenderer.render();
         hyperRenderer.render();
-        scrapRenderer.render();
         bubbleRenderer.render();
     }
 
@@ -135,7 +111,6 @@ MyGame.systems.ParticleManager = function (systems, renderer, graphics) {
         update: update,
         render: render,
         createBubble: createBubble,
-        createShipExplosion: createShipExplosion,
         createExplosion: createExplosion,
         createHyperJump: createHyperJump,
     };

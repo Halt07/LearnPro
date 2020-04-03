@@ -16,14 +16,14 @@ function initializeAudio() {
 
     function loadAudio() {
         MyGame.sounds = {}
-        MyGame.sounds['Teleport'] = loadSound('assets/audio/teleport.mp3');
-        MyGame.sounds['Explosion'] = loadSound('assets/audio/explode.wav');
-        MyGame.sounds['LevelUp'] = loadSound('assets/audio/Jingle_Achievement_00.mp3');
-        MyGame.sounds['AlienHive'] = loadSound('assets/audio/Ambience_AlienHive_00.mp3');
+        MyGame.sounds['Teleport'] = loadSound('fish/assets/audio/teleport.mp3');
+        MyGame.sounds['Explosion'] = loadSound('fish/assets/audio/explode.wav');
+        MyGame.sounds['LevelUp'] = loadSound('fish/assets/audio/Jingle_Achievement_00.mp3');
+        MyGame.sounds['AlienHive'] = loadSound('fish/assets/audio/Ambience_AlienHive_00.mp3');
         MyGame.sounds['AlienHive'].loop = true;
-        MyGame.sounds['Splash'] = loadSound('assets/audio/Bubbles.wav');
+        MyGame.sounds['Splash'] = loadSound('fish/assets/audio/Bubbles.wav');
         
-        MyGame.sounds['Background'] = loadSound('assets/audio/dream_island.ogg');
+        MyGame.sounds['Background'] = loadSound('fish/assets/audio/dream_island.ogg');
         MyGame.sounds['Background'].loop = true;
         MyGame.sounds['Background'].autoplay = true;
         MyGame.sounds['Background'].preload = 'auto';
@@ -119,7 +119,7 @@ function laserSound(){
     let isFirefox = /firefox/.test(navigator.userAgent.toLowerCase());
     
     let sound = new Audio();
-    sound.src = 'assets/audio/Laser_09.mp3';
+    sound.src = 'fish/assets/audio/Laser_09.mp3';
     if(isChrome){
         sound.volume = 3 / 100;
     }
@@ -134,7 +134,7 @@ function astExpSound(){
     let isChrome = /chrome/.test(navigator.userAgent.toLowerCase());
     let isFirefox = /firefox/.test(navigator.userAgent.toLowerCase());
     let sound = new Audio();
-    sound.src = 'assets/audio/explosion04.wav';
+    sound.src = 'fish/assets/audio/explosion04.wav';
     if(isChrome){
         sound.volume = 20 / 100;
     }

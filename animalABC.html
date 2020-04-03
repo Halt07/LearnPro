@@ -2,14 +2,14 @@
 <html lang = "en-US">
 <head>
     <meta charset = "UTF-8">
-    <title>1 Fish, 2 Fish, Count With You Fish</title>
+    <title>A for Animal</title>
     
     <link rel = "stylesheet" type = "text/css" href = "styles/game.css">
 </head>
 <body onload = "MyGame.game.initialize();">
-    <div id = "game" class="fish">
+    <div id = "game" class="abc">
         <div id = "main-menu" class = "screen">
-            <h1 id="fish-title">1 Fish, 2 Fish, Count With You Fish</h1>
+            <h1 id="fish-title">A for Animal</h1>
             <ul class = "menu">
                 <li><button id = "id-new-game">New Game</button></li>
                 <li><button id = "id-high-scores">High Scores</button></li>
@@ -19,7 +19,7 @@
             </ul>
         </div>
         <div id = "game-play" class = "screen">
-            <canvas id = "id-canvas" class="fish" width = "750" height = "750"></canvas>
+            <canvas id = "id-canvas" class="abc" width = "750" height = "750"></canvas>
         </div>
         <div id = "high-scores" class = "screen">
             <h1>High Scores</h1>
@@ -40,7 +40,7 @@
                 <p>The ↑ key is used for moving the submarine forward<br />
                     The ← and → keys are used for turning the submarine<br />
                     Press the Escape Key to start a new game<br />
-                    Press the Space Bar to hear the prompt and answers again
+                    Press the Space Bar to hear the prompt or answers again
                 </p>
             </div>
             <ul class = "menu">
@@ -52,7 +52,7 @@
                 <h1>About</h1>
                 <p>Game Developed by<br/>Bryan Christensen</p>
                 <p>Background Music by Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
-                <p>Background Image by Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+                <p>Background Image by LayHwa Chew: www.freeimages.com/photo/flying-on-the-sky-1377033</p>
                 <p>All other assets not specified above by Bryan Christensen</p>
             </div>
             <ul class = "menu">
@@ -65,7 +65,7 @@
 
     <script src = "scripts/lang.js"></script>
     <script>
-        ChangeFish(localStorage.LearnProLang);
+        ChangeABC(localStorage.LearnProLang);
         let MyGame = {
             screens : {},
             input: {},
@@ -75,31 +75,31 @@
         };
     </script>
     
-    <script src = "fish/scripts/objects/ship.js"></script>
-    <script src = "fish/scripts/objects/fish.js"></script>
-    <script src = "fish/scripts/objects/text.js"></script>
-    <script src = "fish/scripts/objects/info.js"></script>
+    <script src = "abc/animalDict.js"></script>
 
-    <script src = "fish/scripts/render/core.js"></script>
-    <script src = "fish/scripts/render/animated-model.js"></script>
-    <script src = "fish/scripts/render/ship.js"></script>
-    <script src = "fish/scripts/render/text.js"></script>
+    <script src = "abc/scripts/objects/fish.js"></script>
+    <script src = "abc/scripts/objects/text.js"></script>
+    <script src = "abc/scripts/objects/info.js"></script>
 
-    <script src = "fish/scripts/input-keyboard.js"></script>
-    <script src = "fish/scripts/input-mouse.js"></script>
+    <script src = "abc/scripts/render/core.js"></script>
+    <script src = "abc/scripts/render/animated-model.js"></script>
+    <script src = "abc/scripts/render/text.js"></script>
 
-    <script src = "fish/scripts/render/particle-system.js"></script>
-    <script src = "fish/scripts/system/particle-system.js"></script>
-    <script src = "fish/scripts/system/particle-manager.js"></script>
+    <script src = "abc/scripts/input-keyboard.js"></script>
+    <script src = "abc/scripts/input-mouse.js"></script>
 
-    <script src = "fish/scripts/random.js"></script>
-    <script src = "fish/scripts/player.js"></script>
-    <script src = "fish/scripts/game.js"></script>
-    <script src = "fish/scripts/mainmenu.js"></script>
-    <script src = "fish/scripts/gameplay.js"></script>
-    <script src = "fish/scripts/highscores.js"></script>
-    <script src = "fish/scripts/help.js"></script>
-    <script src = "fish/scripts/about.js"></script>
+    <script src = "abc/scripts/render/particle-system.js"></script>
+    <script src = "abc/scripts/system/particle-system.js"></script>
+    <script src = "abc/scripts/system/particle-manager.js"></script>
+
+    <script src = "abc/scripts/random.js"></script>
+    <script src = "abc/scripts/player.js"></script>
+    <script src = "abc/scripts/game.js"></script>
+    <script src = "abc/scripts/mainmenu.js"></script>
+    <script src = "abc/scripts/gameplay.js"></script>
+    <script src = "abc/scripts/highscores.js"></script>
+    <script src = "abc/scripts/help.js"></script>
+    <script src = "abc/scripts/about.js"></script>
 
 </body>
 </html>

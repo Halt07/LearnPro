@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-canvas{
+canvas.fish{
     background-image: url("../fish/assets/underwater.jpg");
     background-size: 100%;
     display: block;
@@ -11,7 +11,16 @@ canvas{
     width: 100%; 
 }
 
-#game {
+canvas.abc{
+    background-image: url("../abc/assets/LayHwaChew_www.freeimages.com_photo_flying-on-the-sky-1377033.jpg");
+    background-size: 100%;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%; 
+}
+
+#game.fish {
     margin: auto;
     display: block;
     width: innerwidth;
@@ -22,6 +31,19 @@ canvas{
     background-size: 100%;
     font-size: 40px;
 }
+
+#game.abc {
+    margin: auto;
+    display: block;
+    width: innerwidth;
+    height: innerheight;
+    border-style: inset;
+    border-width: 1px;
+    background-image: url("../abc/assets/LayHwaChew_www.freeimages.com_photo_flying-on-the-sky-1377033.jpg");
+    background-size: 100%;
+    font-size: 40px;
+}
+
 #home {
     margin: auto;
     display: block;
