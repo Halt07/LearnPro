@@ -243,21 +243,22 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
         const rect = graphics.canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
-        let range = { l: graphics.canvas.width*0.4, r: graphics.canvas.width*0.6, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
+        let range = { l: graphics.canvas.width*0.35, r: graphics.canvas.width*0.65, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
         switch(promptAnswer){
-            case 0: range = { l: graphics.canvas.width*0.2, r: graphics.canvas.width*0.4, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
+            case 0: range = { l: graphics.canvas.width*0.1, r: graphics.canvas.width*0.35, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
                 break;
-            case 2: range = { l: graphics.canvas.width*0.6, r: graphics.canvas.width*0.8, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
+            case 2: range = { l: graphics.canvas.width*0.65, r: graphics.canvas.width*0.9, t: graphics.canvas.height*0.1, b: graphics.canvas.height*0.5};
                 break;
-            case 3: range = { l: graphics.canvas.width*0.2, r: graphics.canvas.width*0.4, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
+            case 3: range = { l: graphics.canvas.width*0.1, r: graphics.canvas.width*0.35, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
                 break;
-            case 4: range = { l: graphics.canvas.width*0.4, r: graphics.canvas.width*0.6, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
+            case 4: range = { l: graphics.canvas.width*0.35, r: graphics.canvas.width*0.65, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
                 break;
-            case 5: range = { l: graphics.canvas.width*0.6, r: graphics.canvas.width*0.8, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
+            case 5: range = { l: graphics.canvas.width*0.65, r: graphics.canvas.width*0.9, t: graphics.canvas.height*0.5, b: graphics.canvas.height*0.9};
                 break;
         }
         if (range.l < x && x < range.r && range.t < y && y < range.b ){
             myInfo.goodJob();
+            myInfo.AnswerQuickly();
             setUp();
         }
     }

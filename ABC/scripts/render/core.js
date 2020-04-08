@@ -94,6 +94,21 @@ MyGame.graphics = (function() {
         context.restore();
     }
 
+    function drawCircle(circle, fillStyle, strokeStyle){
+        context.save();
+
+        context.fillStyle = fillStyle;
+        context.beginPath();
+        context.arc(circle.x, circle.y, circle.radius, 0, Math.PI *2, false);
+        context.fill();
+
+        context.lineWidth=5;
+        context.strokeStyle = strokeStyle;
+        context.stroke()
+
+        context.restore();
+    }
+
     let api = {
         get canvas() { return canvas; },
         clear: clear,
@@ -101,6 +116,7 @@ MyGame.graphics = (function() {
         drawSubTexture: drawSubTexture,
         drawText: drawText,
         drawRectangle: drawRectangle,
+        drawCircle: drawCircle,
     };
 
     return api;

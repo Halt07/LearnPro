@@ -18,6 +18,17 @@ MyGame.objects.Info = function(spec) {
     let renderAnswers = false;
     let wait = false;
     let renderEndMessage = false;
+    let quickAnswer = false;
+
+    let images = [];
+    let imageReady = [];
+    let imageSelect = -1;
+    for(let i =0; i<6; i++){
+        images.push(new Image());
+        images[i].onload = function() {
+            imageReady.push(true);
+        };
+    }
 
     let myLetter = MyGame.objects.Text({
         text: "Which Animal begins with the letter " + spec.letter.toUpperCase() + "?",
@@ -48,7 +59,7 @@ MyGame.objects.Info = function(spec) {
         font: '50pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: MyGame.graphics.canvas.width*0.05, y: MyGame.graphics.canvas.height*0.25 }
+        position: { x: MyGame.graphics.canvas.width*0.05, y: MyGame.graphics.canvas.height*0.4 }
     });
 
     let mid = MyGame.objects.Text({
@@ -56,7 +67,7 @@ MyGame.objects.Info = function(spec) {
         font: '50pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: MyGame.graphics.canvas.width*0.4, y: MyGame.graphics.canvas.height*0.25 }
+        position: { x: MyGame.graphics.canvas.width*0.4, y: MyGame.graphics.canvas.height*0.4 }
     });
 
     let right = MyGame.objects.Text({
@@ -64,7 +75,7 @@ MyGame.objects.Info = function(spec) {
         font: '50pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: MyGame.graphics.canvas.width*0.7, y: MyGame.graphics.canvas.height*0.25 }
+        position: { x: MyGame.graphics.canvas.width*0.7, y: MyGame.graphics.canvas.height*0.4 }
     });
 
     let bleft = MyGame.objects.Text({
@@ -72,7 +83,7 @@ MyGame.objects.Info = function(spec) {
         font: '50pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: MyGame.graphics.canvas.width*0.05, y: MyGame.graphics.canvas.height*0.55 }
+        position: { x: MyGame.graphics.canvas.width*0.05, y: MyGame.graphics.canvas.height*0.8 }
     });
 
     let bmid = MyGame.objects.Text({
@@ -80,7 +91,7 @@ MyGame.objects.Info = function(spec) {
         font: '50pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: MyGame.graphics.canvas.width*0.4, y: MyGame.graphics.canvas.height*0.55 }
+        position: { x: MyGame.graphics.canvas.width*0.4, y: MyGame.graphics.canvas.height*0.8 }
     });
 
     let bright = MyGame.objects.Text({
@@ -88,7 +99,7 @@ MyGame.objects.Info = function(spec) {
         font: '50pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
-        position: { x: MyGame.graphics.canvas.width*0.7, y: MyGame.graphics.canvas.height*0.55 }
+        position: { x: MyGame.graphics.canvas.width*0.7, y: MyGame.graphics.canvas.height*0.8 }
     });
 
     let wellDone = MyGame.objects.Text({
@@ -97,6 +108,14 @@ MyGame.objects.Info = function(spec) {
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
         position: { x: MyGame.graphics.canvas.width*0.3, y: MyGame.graphics.canvas.height*0.35 }
+    });
+
+    let bigLetter = MyGame.objects.Text({
+        text: spec.letter.toUpperCase(),
+        font: '200pt Arial',
+        fillStyle: 'rgba(255, 0, 0, 1)',
+        strokeStyle: 'rgba(0, 0, 0, 1)',
+        position: { x: MyGame.graphics.canvas.width*0.47, y: MyGame.graphics.canvas.height*0.3 }
     });
 
     function updateText(){
@@ -124,12 +143,29 @@ MyGame.objects.Info = function(spec) {
             myLives.updateText('Target: ' + spec.target);
             wellDone.updateText('Good Job!');
         }
+        bigLetter.updateText(spec.letter.toUpperCase());
+    }
+
+    function drawAnswer(i,x,y,imagename){
+        images[i].src = "abc/assets/" + imagename;
+        let s = MyGame.graphics.canvas.width*0.2;
+        if (i == imageSelect){
+            MyGame.graphics.drawCircle({x: x, y: y, radius: s/2 },'rgba(255,255,0,0.4)','rgba(255,255,0,0.2)')
+        }
+        if(imageReady[i])
+            MyGame.graphics.drawTexture(images[i], {x: x, y: y}, 0, {width: s, height: s});
     }
 
     function render(){
         MyGame.render.Text.render(myLetter);
         // MyGame.render.Text.render(myLives);
         MyGame.render.Text.render(myScore);
+        drawAnswer(0,MyGame.graphics.canvas.width*0.2,MyGame.graphics.canvas.height*0.35,'ant.png');
+        drawAnswer(1,MyGame.graphics.canvas.width*0.5,MyGame.graphics.canvas.height*0.35,'butterfly.png');
+        drawAnswer(2,MyGame.graphics.canvas.width*0.8,MyGame.graphics.canvas.height*0.35,'ant.png');
+        drawAnswer(3,MyGame.graphics.canvas.width*0.2,MyGame.graphics.canvas.height*0.75,'dolphin.png');
+        drawAnswer(4,MyGame.graphics.canvas.width*0.5,MyGame.graphics.canvas.height*0.75,'ray.png');
+        drawAnswer(5,MyGame.graphics.canvas.width*0.8,MyGame.graphics.canvas.height*0.75,'ant.png');
         if(renderAnswers){
             MyGame.render.Text.render(left);
             MyGame.render.Text.render(mid);
@@ -137,6 +173,9 @@ MyGame.objects.Info = function(spec) {
             MyGame.render.Text.render(bleft);
             MyGame.render.Text.render(bmid);
             MyGame.render.Text.render(bright);
+        }
+        else if(!renderEndMessage){
+            MyGame.render.Text.render(bigLetter);
         }
         if(renderEndMessage){
             MyGame.render.Text.render(wellDone);
@@ -177,12 +216,13 @@ MyGame.objects.Info = function(spec) {
     }
 
     function updateTextPositions(){
-        left.setPosition({ x: MyGame.graphics.canvas.width*0.05, y: MyGame.graphics.canvas.height*0.25 });
-        mid.setPosition({ x: MyGame.graphics.canvas.width*0.35, y: MyGame.graphics.canvas.height*0.25 });
-        right.setPosition({ x: MyGame.graphics.canvas.width*0.65, y: MyGame.graphics.canvas.height*0.25 });
-        bleft.setPosition({ x: MyGame.graphics.canvas.width*0.05, y: MyGame.graphics.canvas.height*0.55 });
-        bmid.setPosition({ x: MyGame.graphics.canvas.width*0.35, y: MyGame.graphics.canvas.height*0.55 });
-        bright.setPosition({ x: MyGame.graphics.canvas.width*0.65, y: MyGame.graphics.canvas.height*0.55 });
+        bigLetter.setPosition({ x: MyGame.graphics.canvas.width*0.47, y: MyGame.graphics.canvas.height*0.3 });
+        left.setPosition({ x: MyGame.graphics.canvas.width*0.05, y: MyGame.graphics.canvas.height*0.4 });
+        mid.setPosition({ x: MyGame.graphics.canvas.width*0.35, y: MyGame.graphics.canvas.height*0.4 });
+        right.setPosition({ x: MyGame.graphics.canvas.width*0.65, y: MyGame.graphics.canvas.height*0.4 });
+        bleft.setPosition({ x: MyGame.graphics.canvas.width*0.05, y: MyGame.graphics.canvas.height*0.8 });
+        bmid.setPosition({ x: MyGame.graphics.canvas.width*0.35, y: MyGame.graphics.canvas.height*0.8 });
+        bright.setPosition({ x: MyGame.graphics.canvas.width*0.65, y: MyGame.graphics.canvas.height*0.8 });
         wellDone.setPosition({ x: MyGame.graphics.canvas.width*0.3, y: MyGame.graphics.canvas.height*0.35 });
     }
 
@@ -193,16 +233,23 @@ MyGame.objects.Info = function(spec) {
 
         if(renderAnswers && !wait){
             wait = true;
+            quickAnswer=false;
             left.readText(localStorage.LearnProLang);
             left.colorBlink('rgba(255, 255, 0, 1)',1000);
-            setTimeout(function(){mid.readText(localStorage.LearnProLang);mid.colorBlink('rgba(255, 255, 0, 1)',1000);},2000);
-            setTimeout(function(){right.readText(localStorage.LearnProLang);right.colorBlink('rgba(255, 255, 0, 1)',1000);},4000);
-            setTimeout(function(){bleft.readText(localStorage.LearnProLang);bleft.colorBlink('rgba(255, 255, 0, 1)',1000);},6000);
-            setTimeout(function(){bmid.readText(localStorage.LearnProLang);bmid.colorBlink('rgba(255, 255, 0, 1)',1000);},8000);
-            setTimeout(function(){bright.readText(localStorage.LearnProLang);bright.colorBlink('rgba(255, 255, 0, 1)',1000);},10000);
+            imageSelect=0;
+            setTimeout(function(){if(!quickAnswer){mid.readText(localStorage.LearnProLang);imageSelect = 1;mid.colorBlink('rgba(255, 255, 0, 1)',1000);}},2000);
+            setTimeout(function(){if(!quickAnswer){right.readText(localStorage.LearnProLang);imageSelect = 2;right.colorBlink('rgba(255, 255, 0, 1)',1000);}},4000);
+            setTimeout(function(){if(!quickAnswer){bleft.readText(localStorage.LearnProLang);imageSelect = 3;bleft.colorBlink('rgba(255, 255, 0, 1)',1000);}},6000);
+            setTimeout(function(){if(!quickAnswer){bmid.readText(localStorage.LearnProLang);imageSelect = 4;bmid.colorBlink('rgba(255, 255, 0, 1)',1000);}},8000);
+            setTimeout(function(){if(!quickAnswer){bright.readText(localStorage.LearnProLang);imageSelect = 5;bright.colorBlink('rgba(255, 255, 0, 1)',1000);}quickAnswer=false;},10000);
+            setTimeout(function(){if(!quickAnswer){imageSelect = -1;}},12000);
         }
     }
 
+    function AnswerQuickly(){
+        quickAnswer=true;
+        imageSelect = -1;
+    }
     function goodJob(){
         if(renderAnswers){
             renderAnswers = false;
@@ -218,7 +265,8 @@ MyGame.objects.Info = function(spec) {
                 bleft.updateText(MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[3]].animals[Random.nextRange(0,MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[3]].animals.length)]);
                 bmid.updateText(MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[4]].animals[Random.nextRange(0,MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[4]].animals.length)]);
                 bright.updateText(MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[5]].animals[Random.nextRange(0,MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[5]].animals.length)]);
-                readPrompt();},2500);
+                if(quickAnswer) setTimeout(readPrompt,5000);
+                else readPrompt();},2500);
         }
     }
 
@@ -233,6 +281,7 @@ MyGame.objects.Info = function(spec) {
         resetInfo: resetInfo,
         readPrompt: readPrompt,
         showAnswers: showAnswers,
+        AnswerQuickly: AnswerQuickly,
         goodJob: goodJob,
         get letter() { return spec.letter; },
         get score() { return spec.score; },
