@@ -156,16 +156,18 @@ MyGame.objects.Info = function(spec) {
             MyGame.graphics.drawTexture(images[i], {x: x, y: y}, 0, {width: s, height: s});
     }
 
+    // Use following line to access the img filename of the animal being used.
+    // MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[0]].images[MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[0]].animals.indexOf(left.text)]
     function render(){
         MyGame.render.Text.render(myLetter);
         // MyGame.render.Text.render(myLives);
         MyGame.render.Text.render(myScore);
-        drawAnswer(0,MyGame.graphics.canvas.width*0.2,MyGame.graphics.canvas.height*0.35,'ant.png');
-        drawAnswer(1,MyGame.graphics.canvas.width*0.5,MyGame.graphics.canvas.height*0.35,'butterfly.png');
-        drawAnswer(2,MyGame.graphics.canvas.width*0.8,MyGame.graphics.canvas.height*0.35,'ant.png');
-        drawAnswer(3,MyGame.graphics.canvas.width*0.2,MyGame.graphics.canvas.height*0.75,'dolphin.png');
-        drawAnswer(4,MyGame.graphics.canvas.width*0.5,MyGame.graphics.canvas.height*0.75,'ray.png');
-        drawAnswer(5,MyGame.graphics.canvas.width*0.8,MyGame.graphics.canvas.height*0.75,'ant.png');
+        drawAnswer(0,MyGame.graphics.canvas.width*0.2,MyGame.graphics.canvas.height*0.35, spec.letter != spec.answer[0] ? 'ant.png' : MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[0]].images[MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[0]].animals.indexOf(left.text)]);
+        drawAnswer(1,MyGame.graphics.canvas.width*0.5,MyGame.graphics.canvas.height*0.35, spec.letter != spec.answer[1] ? 'butterfly.png' : MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[1]].images[MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[1]].animals.indexOf(mid.text)]);
+        drawAnswer(2,MyGame.graphics.canvas.width*0.8,MyGame.graphics.canvas.height*0.35, spec.letter != spec.answer[2] ? 'panda.png' : MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[2]].images[MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[2]].animals.indexOf(right.text)]);
+        drawAnswer(3,MyGame.graphics.canvas.width*0.2,MyGame.graphics.canvas.height*0.75, spec.letter != spec.answer[3] ? 'dolphin.png' : MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[3]].images[MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[3]].animals.indexOf(bleft.text)]);
+        drawAnswer(4,MyGame.graphics.canvas.width*0.5,MyGame.graphics.canvas.height*0.75, spec.letter != spec.answer[4] ? 'ray.png' : MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[4]].images[MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[4]].animals.indexOf(bmid.text)]);
+        drawAnswer(5,MyGame.graphics.canvas.width*0.8,MyGame.graphics.canvas.height*0.75, spec.letter != spec.answer[5] ? 'squirrel.png' : MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[5]].images[MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[5]].animals.indexOf(bright.text)]);
         if(renderAnswers){
             MyGame.render.Text.render(left);
             MyGame.render.Text.render(mid);

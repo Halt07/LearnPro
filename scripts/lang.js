@@ -21,7 +21,7 @@ lang = {
             </p>`,
             "about" : `<h1>About</h1>
             <p>Game Developed by<br/>Bryan Christensen</p>
-            <p>Background Music by Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
+            <p>Background Music by Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanovAlexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>Background Image by Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
             <p>All other assets not specified above by Bryan Christensen</p>`,
             "colors" : ["ray", "dolphin", "red", "yellow", "blue", "green", "rainbow"],
@@ -37,8 +37,8 @@ lang = {
             </p>`,
             "about" : `<h1>About</h1>
             <p>Game Developed by<br/>Bryan Christensen</p>
-            <p>Background Music by Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
-            <p>Background Image by Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+            <p>Background Music by Summoner of Sounds RPG Maker event: rpgmaker.net/events/sos/</p>
+            <p>Background Image by LayHwa Chew: www.freeimages.com/photo/flying-on-the-sky-1377033</p>
             <p>All other assets not specified above by Bryan Christensen</p>`,
         },
 
@@ -66,7 +66,7 @@ lang = {
             </p>`,
             "about" : `<h1>Les Infos</h1>
             <p>Jeu Développé par<br/>Bryan Christensen</p>
-            <p>La Musique de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
+            <p>La Musique de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanovAlexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>L'Image de Fond créé par Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
             <p>Toutes les autres ressources non spécifiées créées par Bryan Christensen</p>`,
             "colors" : ["raies", "dauphins", "rouges", "jaunes", "bleus", "verts", "arc-en-ciel"],
@@ -82,8 +82,8 @@ lang = {
             </p>`,
             "about" : `<h1>Les Infos</h1>
             <p>Jeu Développé par<br/>Bryan Christensen</p>
-            <p>La Musique de Fond conçue par Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
-            <p>L'Image de Fond créé par Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+            <p>La Musique de Fond conçue par Summoner of Sounds RPG Maker event: rpgmaker.net/events/sos/</p>
+            <p>L'Image de Fond créé par LayHwa Chew: www.freeimages.com/photo/flying-on-the-sky-1377033</p>
             <p>Toutes les autres ressources non spécifiées créées par Bryan Christensen</p>`,
         },
     },
@@ -128,8 +128,8 @@ lang = {
             </p>`,
             "about" : `<h1>Informazioni</h1>
             <p>Gioco Sviluppato da<br/>Bryan Christensen</p>
-            <p>La Musica di Sottofondo progettata da Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
-            <p>Il Immagine di Sfondo creata da Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+            <p>La Musica di Sottofondo progettata da Summoner of Sounds RPG Maker event: rpgmaker.net/events/sos/</p>
+            <p>Il Immagine di Sfondo creata da LayHwa Chew: www.freeimages.com/photo/flying-on-the-sky-1377033</p>
             <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
         },
     },
@@ -174,8 +174,8 @@ lang = {
             </p>`,
             "about" : `<h1>Informazioni</h1>
             <p>Juego Desarrollado por<br/>Bryan Christensen</p>
-            <p>La Musica di Sottofondo progettata da Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
-            <p>Il Immagine di Sfondo creata da Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+            <p>La Musica di Sottofondo progettata da Summoner of Sounds RPG Maker event: rpgmaker.net/events/sos/</p>
+            <p>Il Immagine di Sfondo creata da LayHwa Chew: www.freeimages.com/photo/flying-on-the-sky-1377033</p>
             <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
         },
     },

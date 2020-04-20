@@ -16,14 +16,8 @@ function initializeAudio() {
 
     function loadAudio() {
         MyGame.sounds = {}
-        MyGame.sounds['Teleport'] = loadSound('fish/assets/audio/teleport.mp3');
-        MyGame.sounds['Explosion'] = loadSound('fish/assets/audio/explode.wav');
-        MyGame.sounds['LevelUp'] = loadSound('fish/assets/audio/Jingle_Achievement_00.mp3');
-        MyGame.sounds['AlienHive'] = loadSound('fish/assets/audio/Ambience_AlienHive_00.mp3');
-        MyGame.sounds['AlienHive'].loop = true;
-        MyGame.sounds['Splash'] = loadSound('fish/assets/audio/Bubbles.wav');
         
-        MyGame.sounds['Background'] = loadSound('fish/assets/audio/dream_island.ogg');
+        MyGame.sounds['Background'] = loadSound('abc/assets/audio/FlyingHigh.ogg');
         MyGame.sounds['Background'].loop = true;
         MyGame.sounds['Background'].autoplay = true;
         MyGame.sounds['Background'].preload = 'auto';
@@ -33,19 +27,9 @@ function initializeAudio() {
     
         
         if(isChrome){
-            MyGame.sounds['Teleport'].volume = 5 / 100;
-            MyGame.sounds['Explosion'].volume = 15 / 100;
-            MyGame.sounds['LevelUp'].volume = 8 / 100;
-            MyGame.sounds['AlienHive'].volume = 50 / 100;
-            MyGame.sounds['Splash'].volume = 4 / 100;
-            changeVolume(0.75);
+            changeVolume(3);
         }
         else if(isFirefox){
-            MyGame.sounds['Teleport'].volume = 40 / 100;
-            MyGame.sounds['Explosion'].volume = 40 / 100;
-            MyGame.sounds['LevelUp'].volume = 35 / 100;
-            MyGame.sounds['AlienHive'].volume = 75 / 100;
-            MyGame.sounds['Splash'].volume = 30 / 100;
             changeVolume(20);
         }
         loadBackgroundMusic();
@@ -95,11 +79,6 @@ function stopSound(whichSound) {
 //
 //------------------------------------------------------------------
 function stopAllSounds() {
-    stopSound('Teleport');
-    stopSound('Explosion');
-    stopSound('LevelUp');
-    stopSound('AlienHive');
-    stopSound('Splash');
 }
 
 //------------------------------------------------------------------
@@ -113,36 +92,6 @@ function playSound(whichSound) {
         MyGame.sounds[whichSound].play();
 }
 
-//Plays Laser sound, which requires faster replay time
-function laserSound(){
-    let isChrome = /chrome/.test(navigator.userAgent.toLowerCase());
-    let isFirefox = /firefox/.test(navigator.userAgent.toLowerCase());
-    
-    let sound = new Audio();
-    sound.src = 'fish/assets/audio/Laser_09.mp3';
-    if(isChrome){
-        sound.volume = 3 / 100;
-    }
-    else if(isFirefox){
-        sound.volume = 40 / 100;
-    }
-    sound.play();
-}
-
-//Plays Asteroid Explosion sound, which may require faster replay time
-function astExpSound(){
-    let isChrome = /chrome/.test(navigator.userAgent.toLowerCase());
-    let isFirefox = /firefox/.test(navigator.userAgent.toLowerCase());
-    let sound = new Audio();
-    sound.src = 'fish/assets/audio/explosion04.wav';
-    if(isChrome){
-        sound.volume = 20 / 100;
-    }
-    else if(isFirefox){
-        sound.volume = 65 / 100;
-    }
-    sound.play();
-}
 
 //------------------------------------------------------------------
 //
