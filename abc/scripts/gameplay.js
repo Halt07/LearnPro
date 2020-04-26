@@ -32,7 +32,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
     loadBackgroundMusic();
     Array.prototype.random = function(){return this[Math.floor(Math.random()*this.length)];};
-    let promptLetter = "a";
+    let promptLetter = "w";
     let promptNum = Random.nextRange(0,objects.AnimalDict[localStorage.LearnProLang]["a"].animals.length);
 
     let answers = [promptLetter];

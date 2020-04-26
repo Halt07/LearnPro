@@ -94,8 +94,8 @@ MyGame.objects.AnimalDict = {
             "images": ["vulture.png"],
         },
         "w": {
-            "animals": ["Whale", "Wallaby"],
-            "images": ["whale.png", "wallaby.png"],
+            "animals": ["Whale", "Wombat"],
+            "images": ["whale.png", "wombat.png"],
         },
         "x": {
             "animals": ["X-ray Fish"],
@@ -200,8 +200,8 @@ MyGame.objects.AnimalDict = {
             "images": ["vulture.png", "cow.png"],
         },
         "w": {
-            "animals": ["Le Wallaby"],
-            "images": ["wallaby.png"],
+            "animals": ["Le Wombat"],
+            "images": ["wombat.png"],
         },
         "x": {
             "animals": [""],
@@ -306,8 +306,8 @@ MyGame.objects.AnimalDict = {
             "images": ["fox.png"],
         },
         "w": {
-            "animals": ["Il Wallaby"],
-            "images": ["wallaby.png"],
+            "animals": ["Il Wombat"],
+            "images": ["wombat.png"],
         },
         "x": {
             "animals": [""],
