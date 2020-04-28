@@ -32,7 +32,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
 
     loadBackgroundMusic();
     Array.prototype.random = function(){return this[Math.floor(Math.random()*this.length)];};
-    let promptLetter = "w";
+    let promptLetter = 'c';//getRandomLetter();
     let promptNum = Random.nextRange(0,objects.AnimalDict[localStorage.LearnProLang]["a"].animals.length);
 
     let answers = [promptLetter];
@@ -84,7 +84,7 @@ MyGame.screens['game-play'] = (function(game, objects, renderer, graphics, input
     function setUp(){
         manager = systems.ParticleManager(systems, renderer, graphics);
         
-        promptLetter = "a";
+        promptLetter = getRandomLetter();
         promptNum = Random.nextRange(0,objects.AnimalDict[localStorage.LearnProLang]["a"].animals.length);
         answers.length=0;
         answers = [promptLetter];

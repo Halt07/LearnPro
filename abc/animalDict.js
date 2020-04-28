@@ -78,8 +78,8 @@ MyGame.objects.AnimalDict = {
             "images": ["ray.png", "rhino.png"],
         },
         "s": {
-            "animals": ["Sheep", "Squirrel"],
-            "images": ["sheep.png", "squirrel.png"],
+            "animals": ["Sheep", "Squirrel", "Snake"],
+            "images": ["sheep.png", "squirrel.png", "snake.png"],
         },
         "t": {
             "animals": ["Toucan"],
@@ -184,8 +184,8 @@ MyGame.objects.AnimalDict = {
             "images": ["ray.png", "rhino.png", "fox.png"],
         },
         "s": {
-            "animals": ["La Souris"],
-            "images": ["mouse.png"],
+            "animals": ["La Souris", "Le Serpent"],
+            "images": ["mouse.png", "snake.png"],
         },
         "t": {
             "animals": ["Le Toucan"],
@@ -290,8 +290,8 @@ MyGame.objects.AnimalDict = {
             "images": ["rhino.png"],
         },
         "s": {
-            "animals": ["Lo Struzzo", "Lo Scoiatollo", "Il Serpente"],
-            "images": ["ostrich.png", "", "snake.png"],
+            "animals": ["Lo Struzzo", "Lo Scoiattolo", "Il Serpente"],
+            "images": ["ostrich.png", "squirrel.png", "snake.png"],
         },
         "t": {
             "animals": ["Il Tucano", "Il Topo"],
@@ -396,8 +396,8 @@ MyGame.objects.AnimalDict = {
             "images": [""],
         },
         "s": {
-            "animals": [""],
-            "images": [""],
+            "animals": ["Il Serpente"],
+            "images": ["snake.png"],
         },
         "t": {
             "animals": [""],
