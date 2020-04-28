@@ -158,7 +158,7 @@ MyGame.objects.Info = function(spec) {
 
     // Use following line to access the img filename of the animal being used.
     // MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[0]].images[MyGame.objects.AnimalDict[localStorage.LearnProLang][spec.answer[0]].animals.indexOf(left.text)]
-    var currentGraphics = ['a','b','p','d','r','s','o','f','w','m','n','t','c','q','i']
+    var currentGraphics = ['a','b','p','d','r','s','o','f','w','m','n','t','c','q','i','z']
     function render(){
         MyGame.render.Text.render(myLetter);
         // MyGame.render.Text.render(myLives);
