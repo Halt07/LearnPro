@@ -86,7 +86,7 @@ MyGame.objects.AnimalDict = {
             "images": ["toucan.png"],
         },
         "u": {
-            "animals": ["Unau"],
+            "animals": ["Unau Sloth"],
             "images": ["unau.png"],
         },
         "v": {
