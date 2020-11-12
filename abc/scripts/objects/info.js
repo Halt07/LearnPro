@@ -19,6 +19,7 @@ MyGame.objects.Info = function(spec) {
     let wait = false;
     let renderEndMessage = false;
     let quickAnswer = false;
+    let currentCongrats = 2; //3 different phrases to congratulate
 
     let images = [];
     let imageReady = [];
@@ -118,30 +119,50 @@ MyGame.objects.Info = function(spec) {
         position: { x: MyGame.graphics.canvas.width*0.47, y: MyGame.graphics.canvas.height*0.3 }
     });
 
+    function changeCongrats(){
+        currentCongrats = Random.nextRange(0,3);
+    }
+
+    function congrats(l){
+        let result = ["Well Done!","Perfect!","Marvelous!"];
+        switch(l){
+            case "fr":
+                result = ["Bien Fait!","Parfait!","Merveilleux!"];
+                break;
+            case "it":
+                result = ["Ben Fatto!","Perfetto!","Meraviglioso!"];
+                break;
+            case "es":
+                result = ["Bien Hecho!","Perfecto!","Maravilloso!"];
+                break;
+        }
+        return result[currentCongrats];
+    }
+
     function updateText(){
         if (localStorage.LearnProLang == "fr"){
             myLetter.updateText('Quel Animal commence par la lettre ' + spec.letter.toUpperCase() + '?');
             myScore.updateText('Récord: ' + spec.score);
             myLives.updateText('Cible: ' + spec.target);
-            wellDone.updateText('Bien Fait!');
+            wellDone.updateText(congrats("fr"));
         }
         else if (localStorage.LearnProLang == "it"){
             myLetter.updateText('Quale Animale inizia con la lettera ' + spec.letter.toUpperCase() + '?');
             myScore.updateText('Record: ' + spec.score);
             myLives.updateText('Bersaglio: ' + spec.target);
-            wellDone.updateText('Ben Fatto!');
+            wellDone.updateText(congrats("it"));
         }
         else if (localStorage.LearnProLang == "es"){
             myLetter.updateText('¿Qué Animal comienza con la letra '  + spec.letter.toUpperCase() + '?');
             myScore.updateText('Récord: ' + spec.score);
             myLives.updateText('Cible: ' + spec.target);
-            wellDone.updateText('Bien Hecho!');
+            wellDone.updateText(congrats("es"));
         }
         else{
             myLetter.updateText("Which Animal begins with the letter " + spec.letter.toUpperCase() + "?");
             myScore.updateText('Score: ' + spec.score);
             myLives.updateText('Target: ' + spec.target);
-            wellDone.updateText('Good Job!');
+            wellDone.updateText(congrats("en"));
         }
         bigLetter.updateText(spec.letter.toUpperCase());
     }
@@ -211,6 +232,7 @@ MyGame.objects.Info = function(spec) {
 
     function readPrompt(){
         if (!window.speechSynthesis.speaking){
+            changeCongrats();
             myLetter.readText(localStorage.LearnProLang);
             // if(!renderAnswers){
                 setTimeout(function(){wait = false;showAnswers();},4000);
