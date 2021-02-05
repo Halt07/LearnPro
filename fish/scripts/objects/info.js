@@ -45,9 +45,10 @@ MyGame.objects.Info = function(spec) {
     });
 
     let answers = [1,2,3,4,5,6,7,8,9,10]
+    let first = possibilities();
 
     let left = MyGame.objects.Text({
-        text: '' + spec.answer==0 ? spec.target : answers[(spec.target+Math.floor(Math.random()*9))%10],
+        text: '' + first[0],
         font: '80pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
@@ -55,7 +56,7 @@ MyGame.objects.Info = function(spec) {
     });
 
     let mid = MyGame.objects.Text({
-        text: '' + spec.answer==1 ? spec.target : answers[(spec.target+Math.floor(Math.random()*9))%10],
+        text: '' + first[1],
         font: '80pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
@@ -63,7 +64,7 @@ MyGame.objects.Info = function(spec) {
     });
 
     let right = MyGame.objects.Text({
-        text: '' + spec.answer==2 ? spec.target : answers[(spec.target+Math.floor(Math.random()*9))%10],
+        text: '' + first[2],
         font: '80pt Arial',
         fillStyle: 'rgba(255, 0, 0, 1)',
         strokeStyle: 'rgba(0, 0, 0, 1)',
@@ -202,21 +203,28 @@ MyGame.objects.Info = function(spec) {
             wellDone.readText(localStorage.LearnProLang);
             increaseScore(1);
             setTimeout(function(){renderEndMessage=false;
-                let ans = [];
-                ans[spec.answer] = spec.target;
-                for(i=0;i<3;i++){
-                    if(i != spec.answer){
-                        n = answers[(spec.target+Math.floor(Math.random()*9))%10];
-                        while(ans.find(n) != undefined)
-                            n = answers[(spec.target+Math.floor(Math.random()*9))%10];
-                        ans[i] = n
-                    }
-                }
+                let ans = possibilities();
                 left.updateText('' + ans[0]);
                 mid.updateText('' + ans[1]);
                 right.updateText('' + ans[2]);
+                ans.length=0;
                 readPrompt();},2500);
         }
+    }
+
+    function possibilities(){
+        let ans = [];
+        ans[spec.answer] = spec.target;
+        for(let i=0;i<3;i++){
+            if(i != spec.answer){
+                let n = answers[(spec.target+Math.floor(Math.random()*9))%10];
+                while(ans.find(v => v == n) != undefined)
+                    n = answers[(spec.target+Math.floor(Math.random()*9))%10];
+                ans[i] = n;
+            }
+        }
+        console.log(ans);
+        return ans
     }
 
     let api = {
