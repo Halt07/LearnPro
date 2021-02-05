@@ -75,8 +75,7 @@ lang = {
             "title" : "A pour Animal",
             "buttons" : ["Nouvelle Partie", "Records", "Aide", "Infos", "Menu Principal", "Retour"],
             "help" : `<h1>Aide</h1>
-            <p>La touche ↑ avance le sous-marin<br />
-                Les touches ← et → tournent le sous-marin<br />
+            <p>Cliquez sur l'animal qui correspond à l'invite<br />
                 Appuyez la touche Esc pour commencer une nouvelle partie<br />
                 Appuyez la barre d'espacement pour entendre l'invite et les réponses à nouveau
             </p>`,
@@ -101,10 +100,10 @@ lang = {
         },
         "fishCounter" : {
             "title" : "1 Pesco, 2 Pesci, Contare i Pesci",
-            "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principal", "Ritorno"],
+            "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principale", "Ritorno"],
             "help" : `<h1>Aiuto</h1>
             <p>Il tasto ↑ avanza il sottomarino<br />
-                I tasti ← e → giranno il sottomarino<br />
+                I tasti ← e → girano il sottomarino<br />
                 Prema il tasto Esc per iniziare una nuova partita<br />
                 Prema la barra spaziatrice per ascoltare nuovamente il messaggio e le risposte
                 
@@ -118,10 +117,9 @@ lang = {
         },
         "animalABC" : {
             "title" : "A per Animale",
-            "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principal", "Ritorno"],
+            "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principale", "Ritorno"],
             "help" : `<h1>Aiuto</h1>
-            <p>Il tasto ↑ avanza il sottomarino<br />
-                I tasti ← e → giranno il sottomarino<br />
+            <p>Fare clic sull'animale che corrisponde al prompt
                 Prema il tasto Esc per iniziare una nuova partita<br />
                 Prema la barra spaziatrice per ascoltare nuovamente il messaggio e le risposte
                 
@@ -137,25 +135,25 @@ lang = {
     "es" : {
         "mainMenu" : {
             "title" : "LearnPro - Imparare Insieme",
-            "buttons" : ["Contare i Pesci", "A por Animale", "Giochi Classici", "Contattare", "Informazioni", "Lingue", "Ritorno"],
-            "language" : ["Inglese", "Francese", "Italiano", "Spagnolo"],
-            "forfun" : ["Il Serpente"],
+            "buttons" : ["Contar Peces", "A para Animal", "Juegos Clasicos", "Contactar", "Información", "Idiomas", "Regreso"],
+            "language" : ["Inglés", "Francés", "Italiano", "Español"],
+            "forfun" : ["La Serpiente"],
             "about" : `<h1 class="solid">Informazioni</h1>
             <p>LearnPro Desarrollado por<br/>Bryan Christensen</p>
             <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector creata da kreativkolors - www.freepik.com</a></p>
             <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
         },
         "fishCounter" : {
-            "title" : "1 Pesco, 2 Pesci, Contare i Pesci",
-            "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principal", "Ritorno"],
-            "help" : `<h1>Aiuto</h1>
-            <p>Il tasto ↑ avanza il sottomarino<br />
-                I tasti ← e → giranno il sottomarino<br />
-                Prema il tasto Esc per iniziare una nuova partita<br />
-                Prema la barra spaziatrice per ascoltare nuovamente il messaggio
+            "title" : "1 Pescado, 2 Pescados, Contar Peces",
+            "buttons" : ["Nuevo Juego", "Puntos", "Ayuda", "Información", "Menú Principal", "Regreso"],
+            "help" : `<h1>Ayuda</h1>
+            <p>La tecla ↑ avanza el submarino<br />
+                las teclas ← y → giran el submarino<br />
+                Presiona el botón Esc para comenzar un nuevo juego<br />
+                Presiona la barra espaciadora para escuchar nuevamente el mensaje
                 
             </p>`,
-            "about" : `<h1>Informazioni</h1>
+            "about" : `<h1>Información</h1>
             <p>Juego Desarrollado por<br/>Bryan Christensen</p>
             <p>La Musica di Sottofondo progettata da Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>Il Immagine di Sfondo creata da Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
@@ -164,15 +162,14 @@ lang = {
         },
         "animalABC" : {
             "title" : "1 Pesco, 2 Pesci, Contare i Pesci",
-            "buttons" : ["Nuova Partita", "Punteggi", "Aiuto", "Informazioni", "Menu Principal", "Ritorno"],
-            "help" : `<h1>Aiuto</h1>
-            <p>Il tasto ↑ avanza il sottomarino<br />
-                I tasti ← e → giranno il sottomarino<br />
-                Prema il tasto Esc per iniziare una nuova partita<br />
-                Prema la barra spaziatrice per ascoltare nuovamente il messaggio
+            "buttons" : ["Nuevo Juego", "Puntos", "Ayuda", "Información", "Menú Principal", "Regreso"],
+            "help" : `<h1>Ayuda</h1>
+            <p>Haga clic en el animal que coincide con el mensaje
+                Presiona el botón Esc para comenzar un nuevo juego<br />
+                Presiona la barra espaciadora para escuchar nuevamente el mensaje
                 
             </p>`,
-            "about" : `<h1>Informazioni</h1>
+            "about" : `<h1>Información</h1>
             <p>Juego Desarrollado por<br/>Bryan Christensen</p>
             <p>La Musica di Sottofondo progettata da Summoner of Sounds RPG Maker event: rpgmaker.net/events/sos/</p>
             <p>Il Immagine di Sfondo creata da LayHwa Chew: www.freeimages.com/photo/flying-on-the-sky-1377033</p>

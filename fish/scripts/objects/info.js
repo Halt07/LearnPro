@@ -18,6 +18,7 @@ MyGame.objects.Info = function(spec) {
     let renderAnswers = false;
     let wait = false;
     let renderEndMessage = false;
+    let currentCongrats = 2; //3 different phrases to congratulate
 
     let myColor = MyGame.objects.Text({
         text: (spec.color=="ray" || spec.color=="dolphin") ? 'How many ' + spec.color + 's are there?' : 'How many ' + spec.color + ' fish are there?',
@@ -77,30 +78,50 @@ MyGame.objects.Info = function(spec) {
         position: { x: MyGame.graphics.canvas.width*0.3, y: MyGame.graphics.canvas.height*0.35 }
     });
 
+    function changeCongrats(){
+        currentCongrats = Random.nextRange(0,3);
+    }
+
+    function congrats(l){
+        let result = ["Well Done!","Perfect!","Marvelous!"];
+        switch(l){
+            case "fr":
+                result = ["Bien Fait!","Parfait!","Merveilleux!"];
+                break;
+            case "it":
+                result = ["Ben Fatto!","Perfetto!","Meraviglioso!"];
+                break;
+            case "es":
+                result = ["Bien Hecho!","Perfecto!","Maravilloso!"];
+                break;
+        }
+        return result[currentCongrats];
+    }
+
     function updateText(){
         if (localStorage.LearnProLang == "fr"){
             myColor.updateText('Il y a combien de ' + ((spec.color=="ray" || spec.color=="dolphin") ?  '' : 'poissons ') + TranslateColorFish(spec.color) + '?');
             myScore.updateText('Récord: ' + spec.score);
             myLives.updateText('Cible: ' + spec.target);
-            wellDone.updateText('Bien Fait!');
+            wellDone.updateText(congrats("fr"));
         }
         else if (localStorage.LearnProLang == "it"){
             myColor.updateText('Ci sono ' + ((spec.color=="ray" || spec.color=="dolphin") ?  (spec.color=="ray" ?  'quante ' : 'quanti ') : 'quanti pesci ') + TranslateColorFish(spec.color) + '?');
             myScore.updateText('Record: ' + spec.score);
             myLives.updateText('Bersaglio: ' + spec.target);
-            wellDone.updateText('Ben Fatto!');
+            wellDone.updateText(congrats("it"));
         }
         else if (localStorage.LearnProLang == "es"){
             myColor.updateText('Il y a combien des ' + ((spec.color=="ray" || spec.color=="dolphin") ?  '' : 'poissons ') + TranslateColorFish(spec.color) + 's?');
             myScore.updateText('Récord: ' + spec.score);
             myLives.updateText('Cible: ' + spec.target);
-            wellDone.updateText('Bien Hecho!');
+            wellDone.updateText(congrats("es"));
         }
         else{
             myColor.updateText((spec.color=="ray" || spec.color=="dolphin") ? 'How many ' + spec.color + 's are there?' : 'How many ' + spec.color + ' fish are there?',);
             myScore.updateText('Score: ' + spec.score);
             myLives.updateText('Target: ' + spec.target);
-            wellDone.updateText('Good Job!');
+            wellDone.updateText(congrats("en"));
         }
     }
 
@@ -144,6 +165,7 @@ MyGame.objects.Info = function(spec) {
 
     function readPrompt(){
         if (!window.speechSynthesis.speaking){
+            changeCongrats();
             myColor.readText(localStorage.LearnProLang);
             if(renderAnswers){
                 setTimeout(function(){wait = false;showAnswers();},4000);
