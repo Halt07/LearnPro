@@ -185,7 +185,7 @@ if (typeof(Storage) !== "undefined") {
 }
 
 function ChangeLanguage(language){
-    if(language != "it" && language != "en" && language != "fr"){
+    if(language != "it" && language != "en" && language != "fr" && language != "es"){
         alert("Language Not Yet Available, but will be soon.");
     }
     else{
