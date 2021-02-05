@@ -112,7 +112,7 @@ MyGame.objects.Info = function(spec) {
             wellDone.updateText(congrats("it"));
         }
         else if (localStorage.LearnProLang == "es"){
-            myColor.updateText('Il y a combien des ' + ((spec.color=="ray" || spec.color=="dolphin") ?  '' : 'poissons ') + TranslateColorFish(spec.color) + 's?');
+            myColor.updateText('¿Cuántos ' + ((spec.color=="ray" || spec.color=="dolphin") ?  '' : 'peces ') + TranslateColorFish(spec.color) + ' hay?');
             myScore.updateText('Récord: ' + spec.score);
             myLives.updateText('Cible: ' + spec.target);
             wellDone.updateText(congrats("es"));
