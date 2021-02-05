@@ -202,7 +202,7 @@ MyGame.objects.Info = function(spec) {
             wellDone.readText(localStorage.LearnProLang);
             increaseScore(1);
             setTimeout(function(){renderEndMessage=false;
-                ans = [];
+                let ans = [];
                 ans[spec.answer] = spec.target;
                 for(i=0;i<3;i++){
                     if(i != spec.answer){
