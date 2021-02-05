@@ -144,7 +144,7 @@ lang = {
             <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
         },
         "fishCounter" : {
-            "title" : "1 Pescado, 2 Pescados, Contar Peces",
+            "title" : "1 Pez, 2 Peces, Contar Peces",
             "buttons" : ["Nuevo Juego", "Puntos", "Ayuda", "Información", "Menú Principal", "Regreso"],
             "help" : `<h1>Ayuda</h1>
             <p>La tecla ↑ avanza el submarino<br />
@@ -158,7 +158,7 @@ lang = {
             <p>La Musica di Sottofondo progettata da Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
             <p>Il Immagine di Sfondo creata da Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
             <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
-            "colors" : ["mante", "delfini", "rossi", "gialli", "azzurri", "verdi", "arcobaleno"],
+            "colors" : ["mantarayas", "delfines", "rojos", "amarillos", "azules", "verdes", "arcoiris"],
         },
         "animalABC" : {
             "title" : "1 Pesco, 2 Pesci, Contare i Pesci",
