@@ -140,8 +140,8 @@ lang = {
             "forfun" : ["La Serpiente"],
             "about" : `<h1 class="solid">Informazioni</h1>
             <p>LearnPro Desarrollado por<br/>Bryan Christensen</p>
-            <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector creata da kreativkolors - www.freepik.com</a></p>
-            <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
+            <p><a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector creada por kreativkolors - www.freepik.com</a></p>
+            <p>Todos los demás recursos no especificados creados por Bryan Christensen</p>`,
         },
         "fishCounter" : {
             "title" : "1 Pez, 2 Peces, Contar Peces",
@@ -155,9 +155,9 @@ lang = {
             </p>`,
             "about" : `<h1>Información</h1>
             <p>Juego Desarrollado por<br/>Bryan Christensen</p>
-            <p>La Musica di Sottofondo progettata da Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
-            <p>Il Immagine di Sfondo creata da Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
-            <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
+            <p>Música de fondo diseñada por Alexandr Zhelanov: opengameart.org/users/alexandr-zhelanov</p>
+            <p>La imagen de fondo creada por Mathew Mason: freeimages.com/photo/underwater-at-aitutaki-1389117</p>
+            <p>Todos los demás recursos no especificados creados por Bryan Christensen</p>`,
             "colors" : ["mantarayas", "delfines", "rojos", "amarillos", "azules", "verdes", "arcoiris"],
         },
         "animalABC" : {
@@ -171,9 +171,9 @@ lang = {
             </p>`,
             "about" : `<h1>Información</h1>
             <p>Juego Desarrollado por<br/>Bryan Christensen</p>
-            <p>La Musica di Sottofondo progettata da Summoner of Sounds RPG Maker event: rpgmaker.net/events/sos/</p>
-            <p>Il Immagine di Sfondo creata da LayHwa Chew: www.freeimages.com/photo/flying-on-the-sky-1377033</p>
-            <p>Tutte le altre risorse non ancora specificate create da Bryan Christensen</p>`,
+            <p>Música de fondo diseñada por Summoner of Sounds RPG Maker event: rpgmaker.net/events/sos/</p>
+            <p>La imagen de fondo creada por LayHwa Chew: www.freeimages.com/photo/flying-on-the-sky-1377033</p>
+            <p>Todos los demás recursos no especificados creados por Bryan Christensen</p>`,
         },
     },
 }
