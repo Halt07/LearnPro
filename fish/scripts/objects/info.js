@@ -202,9 +202,19 @@ MyGame.objects.Info = function(spec) {
             wellDone.readText(localStorage.LearnProLang);
             increaseScore(1);
             setTimeout(function(){renderEndMessage=false;
-                left.updateText('' + spec.answer==0 ? spec.target : answers[(spec.target+Math.floor(Math.random()*9))%10]);
-                mid.updateText('' + spec.answer==1 ? spec.target : answers[(spec.target+Math.floor(Math.random()*9))%10]);
-                right.updateText('' + spec.answer==2 ? spec.target : answers[(spec.target+Math.floor(Math.random()*9))%10]);
+                ans = [];
+                ans[spec.answer] = spec.target;
+                for(i=0;i<3;i++){
+                    if(i != spec.answer){
+                        n = answers[(spec.target+Math.floor(Math.random()*9))%10];
+                        while(ans.find(n) != undefined)
+                            n = answers[(spec.target+Math.floor(Math.random()*9))%10];
+                        ans[i] = n
+                    }
+                }
+                left.updateText('' + ans[0]);
+                mid.updateText('' + ans[1]);
+                right.updateText('' + ans[2]);
                 readPrompt();},2500);
         }
     }
