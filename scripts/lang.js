@@ -237,6 +237,9 @@ function ChangeHome(language){
     tag = document.getElementById("id-italiano");
     tag.textContent = lang[language]["mainMenu"].language[2];
 
+    tag = document.getElementById("id-espanol");
+    tag.textContent = lang[language]["mainMenu"].language[3];
+
     //Classics MiniGames Screen
     tag = document.getElementById("forfun");
     tag = tag.getElementsByTagName("h1")[0];
