@@ -43,16 +43,16 @@ MyGame.objects.Text = function(spec) {
         speech.pitch = 1;
         let l = window.speechSynthesis.getVoices();
         if(language == "fr"){
-            speech.voice = l.find(voice => voice.name == "Google français");
+            speech.voice = l.find(voice => voice.name == "Google français" || voice.lang == "fr-FR");
         }
         else if(language == "it"){
-            speech.voice = l.find(voice => voice.name == "Google italiano");
+            speech.voice = l.find(voice => voice.name == "Google italiano" || voice.lang == "it-IT");
         }
         else if(language == "es"){
-            speech.voice = l.find(voice => voice.name == "Google español");
+            speech.voice = l.find(voice => voice.name == "Google español" || voice.lang == "es-ES");
         }
         else if(language == "en"){
-            speech.voice = l.find(voice => voice.name == "Google US English");
+            speech.voice = l.find(voice => voice.name == "Google US English" || voice.lang == "en-US");
         }
         // else{
         //     speech.voice = l.find(voice => voice.default);
